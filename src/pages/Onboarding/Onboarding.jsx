@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import OnboardingExpenses from "../../components/OnboardingExpenses/OnboardingExpenses";
+
 
 const Onboarding = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +55,7 @@ const Onboarding = () => {
           >
           </input>
         </div>
-        
+      <OnboardingExpenses handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
       <div>
         <button>
           Submit

@@ -1,4 +1,4 @@
-const OnboardingExpenses = () => {
+const OnboardingExpenses = ({handleChange, handleSubmit, formData}) => {
 
   return (
     <>
