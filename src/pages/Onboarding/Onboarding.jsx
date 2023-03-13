@@ -32,16 +32,28 @@ const Onboarding = () => {
         onSubmit={handleSubmit}
       >
         <div>
-          <label htmlFor="XXX">XXX</label>
+          <label htmlFor="income">Income</label>
           <input
-            type='text'
+            type='number'
             autoComplete="off"
-            value={formData.XXX}
+            value={formData.income}
             onChange={handleChange}
-            name='XXX'
+            name='income'
           >
           </input>
         </div>
+        <div>
+          <label htmlFor="location">Location</label>
+          <input
+            type='text'
+            autoComplete="off"
+            value={formData.location}
+            onChange={handleChange}
+            name='location'
+          >
+          </input>
+        </div>
+        
       <div>
         <button>
           Submit
