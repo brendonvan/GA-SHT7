@@ -1,19 +1,32 @@
+import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
-    <nav>
-      {user ?
-        <ul>
-          <li>Welcome, {user.name}</li>
-          <li><Link to="/profiles">Profiles</Link></li>
-          <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-          <li><Link to="/change-password">Change Password</Link></li>
+    <nav className={styles.container}>
+      {true ? // boolean is in place for testing. Once user is finished we can replace with "user"
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <Link className={styles.link} to="/feed">
+              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <div>Feed</div>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link className={styles.link} to="/map">
+              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <div>Map</div>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link className={styles.link} to="/profiles">
+              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <div>Profile</div>
+            </Link>
+          </li>
         </ul>
       :
         <ul>
-          <li><Link to="/login">Log In</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
         </ul>
       }
     </nav>

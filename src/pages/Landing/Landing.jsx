@@ -12,7 +12,6 @@ const Landing = ({ user }) => {
 
   function handleDecrement() {
     dispatch(decAction());
-    
   }
 
   return (

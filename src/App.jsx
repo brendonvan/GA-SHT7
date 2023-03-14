@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
+import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
@@ -34,8 +35,7 @@ const App = () => {
   }
 
   return (
-    <>
-      <NavBar user={user} handleLogout={handleLogout} />
+    <div className='app'>
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -47,11 +47,19 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
+          path="/dashboard"
+          element={
+            //<ProtectedRoute user={user}>
+              <Dashboard />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
           path="/profiles"
           element={
-            <ProtectedRoute user={user}>
+            //<ProtectedRoute user={user}>
               <Profiles />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           }
         />
         <Route
@@ -63,7 +71,8 @@ const App = () => {
           }
         />
       </Routes>
-    </>
+          <NavBar user={user} handleLogout={handleLogout} />
+    </div>
   )
 }
 
