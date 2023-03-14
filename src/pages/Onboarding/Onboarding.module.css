@@ -1,0 +1,50 @@
+.screen1 { 
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  justify-content: space-around;
+}
+
+.pageTracker {
+width: 100px;
+height: 20px;
+color: black;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+/* background-color: red; */
+/* border: 2px solid blue; */
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.339);
+}
+
+.txt {
+  font-size: 1.5rem;
+}
+
+.img{
+  width: 90%;
+  height: 30%;
+}
+
+
+.screen1 > button {
+  width: 17em;
+  height: 5em;
+  font-weight: 800;
+  font-size: 1em;
+  border: none;
+  padding: 0;
+  border-radius: 15px;
+}
+
+.buttonTxt {
+  font-size: 2em;
+}
