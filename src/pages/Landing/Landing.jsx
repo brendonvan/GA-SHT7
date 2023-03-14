@@ -18,7 +18,7 @@ const Landing = ({ user, Onboarding }) => {
     console.log(onboardingPage)
     console.log(showOnboarding)
   }
-
+  
   // function handleIncrement() {
   //   dispatch(incAction());
   // }
@@ -27,8 +27,6 @@ const Landing = ({ user, Onboarding }) => {
   //   dispatch(decAction());
     
   // }
-
-
 
   return (
     <main className={styles.container}>

@@ -1,0 +1,31 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Source Sans Pro', sans-serif;
+    --main-bg-color: #ffffff;
+    --background-highlight: #e9e9e9;
+    --background-press: #ffffff;
+    --text-base: #000000;
+    --text-subdued: #a7a7a7;
+    --now-playing-background: rgba(40, 40, 40, 50%);
+    --movie-details-buttons: rgba(255, 0, 0, .798);
+    --movie-details-buttons-hover: rgba(255, 0, 0, .5);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+    color: var(--text-base);
+    font-family: var(--font-family);
+}
+
+html {
+    background-color: var(--background-press);
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+}

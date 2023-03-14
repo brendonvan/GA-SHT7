@@ -30,4 +30,4 @@ export const decAction = () => {
     return {
       type: 'DECREMENT'
     };
-  };
+};
