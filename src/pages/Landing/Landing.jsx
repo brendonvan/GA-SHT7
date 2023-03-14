@@ -19,12 +19,6 @@ const Landing = ({ user, Onboarding }) => {
     console.log(showOnboarding)
   }
 
-  function exitOnboarding(evt){
-    if (onboardingPage <= 4){
-      setShowOnboarding(false)
-    }
-  }
-
   // function handleIncrement() {
   //   dispatch(incAction());
   // }
@@ -40,7 +34,7 @@ const Landing = ({ user, Onboarding }) => {
     <main className={styles.container}>
       <h1>hello, {user ? user.name : 'friend'}</h1>
       <div>
-        {showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} exitOnboarding={exitOnboarding} onboardingPage={onboardingPage} />}
+        {showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
         {/* <h2>Counter</h2>
         <div>
           <button onClick={() => {handleDecrement()}}>-</button>

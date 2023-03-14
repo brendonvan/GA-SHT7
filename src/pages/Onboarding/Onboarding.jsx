@@ -6,7 +6,7 @@ import styles from './Onboarding.module.css'
 // import OnboardingExpenses from "../../components/OnboardingExpenses/OnboardingExpenses";
 
 
-const Onboarding = ({onboardingPage, turnPage, exitOnboarding}) => {
+const Onboarding = ({onboardingPage, turnPage}) => {
   // const [formData, setFormData] = useState({
   //   //? Awaiting backend model
   // })
@@ -34,17 +34,18 @@ const Onboarding = ({onboardingPage, turnPage, exitOnboarding}) => {
     <>
     <div className={styles.screen1}>
 
+      {/* Remove this line */}
       <h1>Onboarding Screen</h1>
 
-      <h1>IMG</h1>
+      <h1 className={styles.img}>IMG</h1>
 
-      <h3>Set Goals Together</h3>
+      <h3 className={styles.txt}>Set Goals Together</h3>
       <div className={styles.pageTracker}>
-        <div className={styles.page1}></div>
-        <div className={styles.page2}></div>
-        <div className={styles.page3}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
       </div>
-      <button onClick={turnPage}>Next</button>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
     </div>
     </>
   )
