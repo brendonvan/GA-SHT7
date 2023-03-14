@@ -1,67 +1,51 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import OnboardingExpenses from "../../components/OnboardingExpenses/OnboardingExpenses";
+import styles from './Onboarding.module.css'
+
+// import OnboardingExpenses from "../../components/OnboardingExpenses/OnboardingExpenses";
 
 
-const Onboarding = () => {
-  const [formData, setFormData] = useState({
-    //? Awaiting backend model
-  })
+const Onboarding = ({onboardingPage, turnPage, exitOnboarding}) => {
+  // const [formData, setFormData] = useState({
+  //   //? Awaiting backend model
+  // })
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  // const handleChange = e => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value })
+  // }
 
-  const handleSubmit = async evt => {
-    evt.preventDefault()
-    try {
-      //? budgetService not created yet
-      await budgetService.create(formData)
-      navigate('/')
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const handleSubmit = async evt => {
+  //   evt.preventDefault()
+  //   try {
+  //     //? budgetService not created yet
+  //     await budgetService.create(formData)
+  //     navigate('/')
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
 
 
   return (
     <>
-      <form
-        autoComplete="off"
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <label htmlFor="income">Income</label>
-          <input
-            type='number'
-            autoComplete="off"
-            value={formData.income}
-            onChange={handleChange}
-            name='income'
-          >
-          </input>
-        </div>
-        <div>
-          <label htmlFor="location">Location</label>
-          <input
-            type='text'
-            autoComplete="off"
-            value={formData.location}
-            onChange={handleChange}
-            name='location'
-          >
-          </input>
-        </div>
-      <OnboardingExpenses handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
-      <div>
-        <button>
-          Submit
-        </button>
+    <div className={styles.screen1}>
+
+      <h1>Onboarding Screen</h1>
+
+      <h1>IMG</h1>
+
+      <h3>Set Goals Together</h3>
+      <div className={styles.pageTracker}>
+        <div className={styles.page1}></div>
+        <div className={styles.page2}></div>
+        <div className={styles.page3}></div>
       </div>
-      </form>
+      <button onClick={turnPage}>Next</button>
+    </div>
     </>
   )
 }

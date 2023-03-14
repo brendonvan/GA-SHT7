@@ -51,4 +51,8 @@ async function deleteTask(taskId) {
 }
 
 
-export { getAllProfiles, addPhoto, create, deleteTask }
+export { 
+  getAllProfiles,
+  addPhoto, 
+  create, 
+  deleteTask }
