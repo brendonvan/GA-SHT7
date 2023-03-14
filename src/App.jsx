@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Onboarding from './pages/Onboarding/Onboarding'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -37,7 +38,7 @@ const App = () => {
   return (
     <div className='app'>
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<Landing user={user} Onboarding={Onboarding}/>} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

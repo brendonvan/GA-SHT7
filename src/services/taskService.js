@@ -1,6 +1,6 @@
 import * as tokenService from './tokenService'
 
-const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/profiles`
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/task`
 
 async function getAllProfiles() {
   const res = await fetch(BASE_URL, {
@@ -20,20 +20,39 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-async function createProfile(profileData) {
+async function create(taskData) {
   try {
-    const res = await fetch(BASE_URL, {
-      method: "POST",
-      headers: { 
+    const res = await fetch(`${BASE_URL}`, {
+      method: 'POST',
+      headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(profileData)
+      body: JSON.stringify(taskData)
     })
-    return await res.json()
+    return res.json()
   } catch (error) {
     console.log(error)
   }
 }
 
-export { getAllProfiles, addPhoto, createProfile }
+async function deleteTask(taskId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${taskId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+
+  }
+}
+
+
+export { 
+  getAllProfiles,
+  addPhoto, 
+  create, 
+  deleteTask }
