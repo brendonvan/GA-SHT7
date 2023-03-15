@@ -1,18 +1,18 @@
-import styles from './Dashboard.module.css'
+import styles from './TaskList.module.css'
 //import { useDispatch, useSelector } from 'react-redux'
 
 // components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
+import TaskItem from '../../components/Task/Task'
 
-const Dashboard = () => {
-  // test data
-  const taskList = {
+const TaskList = () => {
+  // Test Data
+  const task = {
     assgined: "Billy",
     amountOfTask: 2,
     coinsEarned: 10,
     goalCost: 100
   }
-  const taskList2 = {
+  const task2 = {
     assgined: "Jimmy",
     amountOfTask: 60,
     coinsEarned: 2,
@@ -22,20 +22,17 @@ const Dashboard = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.header}>Chore Board</h1>
+        <h1 className={styles.header}>{ task.assgined }'s List</h1>
         <div className={styles.line}></div>
         <div className={styles.taskList}>
-          <AssignedChores data={ taskList }></AssignedChores>
+          <TaskItem data={ task }></TaskItem>
         </div>
         <div className={styles.taskList}>
-          <AssignedChores data={ taskList2 }></AssignedChores>
-        </div>
-        <div className={styles.addTaskBtn}>
-          +
+          <TaskItem data={ task2 }></TaskItem>
         </div>
       </div>
     </>
   )
 }
 
-export default Dashboard
+export default TaskList

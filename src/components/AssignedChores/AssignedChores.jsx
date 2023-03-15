@@ -1,7 +1,7 @@
-import styles from './Task.module.css'
+import styles from './AssignedChores.module.css'
 import { Link } from 'react-router-dom'
 
-const Task = (props) => {
+const AssignedChores = (props) => {
 
   const progress = (props.data.coinsEarned / props.data.goalCost) * 100
 
@@ -27,4 +27,4 @@ const Task = (props) => {
   )
 }
 
-export default Task
+export default AssignedChores

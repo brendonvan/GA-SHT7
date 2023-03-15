@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .header {
@@ -27,20 +28,4 @@
 
 .taskList::-webkit-scrollbar {
   display: none;
-}
-
-.addTaskBtn {
-  width: 2.75rem;
-  height: 2.75rem;
-  margin-top: 1rem;
-  margin-right: 2.063rem;
-  background: #116ACC;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #FFFFFF;
-  font-size: 1.5rem;
-  align-self: flex-end;
 }

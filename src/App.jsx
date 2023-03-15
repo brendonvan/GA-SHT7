@@ -11,6 +11,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Onboarding from './pages/Onboarding/Onboarding'
 import Chores from './pages/Chores/Chores'
+import TaskList from './pages/TaskList/TaskList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -53,6 +54,14 @@ const App = () => {
           element={
             //<ProtectedRoute user={user}>
               <Dashboard />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tasklist"
+          element={
+            //<ProtectedRoute user={user}>
+              <TaskList />
             //</ProtectedRoute>
           }
         />
