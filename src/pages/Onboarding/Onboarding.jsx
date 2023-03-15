@@ -32,48 +32,43 @@ const Onboarding = ({onboardingPage, turnPage}) => {
 
   return (
     <>
+    { onboardingPage === 1 ? (
     <div className={styles.screen1}>
-
-      <h1>Page 1 Onboarding Screen</h1>
-
-      <h1 className={styles.img}>IMG</h1>
-
-      <h3 className={styles.txt}>Set Goals Together</h3>
+  
+      <img src="assets/Onboarding_1.png" className={styles.img}></img>
+      <h1>Teach kids responsibility by making a chore board</h1>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot1}></div>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
       </div>
-      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
     </div>
+    ) : ("")}
+    { onboardingPage === 2 ? (
     <div className={styles.screen2}>
-
-      <h1>Page 2 Onboarding Screen</h1>
-
-      <h1 className={styles.img}>IMG</h1>
-
-      <h3 className={styles.txt}>Stay on Track Together</h3>
+      <img src="assets/Onboarding_2.png" className={styles.img}></img>
+      <h1>Help them stay accountable by keeping track</h1>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
         <div className={styles.dot2}></div>
         <div className={styles.dot}></div>
       </div>
-      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
     </div>
+    ) : ("")}
+    { onboardingPage === 3 ? (
     <div className={styles.screen3}>
-
-      <h1>Page 3 Onboarding Screen</h1>
-
-      <h1 className={styles.img}>IMG</h1>
-
-      <h3 className={styles.txt}>Celebrate Together</h3>
+      <img src="assets/Onboarding_3.png" className={styles.img}></img>
+      <h1>Incentivize them to reach their goals through rewards</h1>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Create Profile!</span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
         <div className={styles.dot3}></div>
       </div>
-      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
     </div>
+    ) : ("")}
     </>
   )
 }

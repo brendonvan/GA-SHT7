@@ -30,7 +30,6 @@ const Landing = ({ user, Onboarding }) => {
 
   return (
     <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
       <div>
         {showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
         {/* <h2>Counter</h2>
