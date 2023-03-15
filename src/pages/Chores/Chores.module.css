@@ -1,0 +1,25 @@
+.container {
+  height: 100vh;
+  width: 50%;
+  /* border: 2px solid black; */
+}
+
+.container * {
+  text-align: center;
+}
+
+.container h1 {
+  margin: 1.6rem 0;
+}
+
+.container > h1:first-child {
+  text-decoration: underline;
+}
+
+.container input, .container select {
+  border-radius: 20px;
+  padding: 0.5rem ;
+  font-size: 1.5rem;
+  outline: none;
+  border: 3px solid black;
+}

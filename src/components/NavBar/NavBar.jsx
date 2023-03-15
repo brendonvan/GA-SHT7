@@ -21,6 +21,12 @@ const NavBar = ({ user, handleLogout }) => {
             </Link>
           </li>
           <li className={styles.navItem}>
+            <Link className={styles.link} to="/chores">
+              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <div>Chores</div>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
             <Link className={styles.link} to="/profiles">
                {/* Change to this as users should only be able to access one profile
                <Link className={styles.link} to={`/profiles/${profile._id}`}> */}

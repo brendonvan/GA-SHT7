@@ -30,6 +30,18 @@ const Profiles = () => {
       :
         <p>No profiles yet</p>
       }
+      <form action={`/${profiles._id}/child`} method="POST">
+      <div>Name</div> 
+      <input type="text"></input>
+      <div>Avatar:</div>
+      <input type="text"></input>
+      <div>Score:</div>
+      <input type="number"></input>
+      <div>Goal:</div>
+      <input type="text"></input>
+      <div></div>
+      <input id="submit" type="submit" value="Add Child"/>
+    </form>
     </>
   )
 }
