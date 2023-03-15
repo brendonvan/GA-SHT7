@@ -1,3 +1,7 @@
+.screen1 {
+  margin-top: 70rem;
+}
+
 .screen1, .screen2, .screen3 { 
   border: 2px solid red;
   display: flex;
