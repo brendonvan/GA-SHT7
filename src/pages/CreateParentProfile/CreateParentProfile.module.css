@@ -1,7 +1,9 @@
 .container {
+  height: 100vh;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-flow: column;
 }
 
 .header {
@@ -65,7 +67,7 @@
 .nextBtn {
   width: 12.5rem;
   height: 3.25rem;
-  margin: 2rem 0;
+  margin-bottom: 3.688rem;
   background: var(--button-background);
   border-radius: 1.875rem;
   color: var(--text-button);

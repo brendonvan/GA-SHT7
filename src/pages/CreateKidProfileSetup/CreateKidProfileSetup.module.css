@@ -43,25 +43,11 @@
   margin: 1.875rem 1.875rem;
 }
 
-.availableAvatar {
-  width: 24.375rem;
-  margin: 2rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 0rem;
-  row-gap: 4rem;
-}
-
-.gridCell {
+.formField {
+  width: 17.75rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.avatar {
-  width: 6.75rem;
-  height: 6.75rem;
+  flex-flow: column wrap;
 }
 
 .nextBtn {
@@ -77,4 +63,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.label {
+  width: 12.063rem;
+  font-size: 1.4rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 400;
+  letter-spacing: -0.063rem;
+  color: var(--text-subdued);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.input {
+  width: 17.75rem;
+  height: 2.5rem;
+  margin-top: 0.7rem;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 400;
+  letter-spacing: -0.063rem;
+  color: var(--input-placeholder);
 }

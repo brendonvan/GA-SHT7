@@ -6,7 +6,9 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile'
+import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreateParentProfileSetup'
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
+import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
 import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
@@ -83,10 +85,26 @@ const App = () => {
           }
         />
         <Route
+          path="/createParentProfile/setup"
+          element={
+            //<ProtectedRoute user={user}>
+              <CreateParentProfileSetup />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
           path="/createKidProfile"
           element={
             //<ProtectedRoute user={user}>
               <CreateKidProfile />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/createKidProfile/setup"
+          element={
+            //<ProtectedRoute user={user}>
+              <CreateKidProfileSetup />
             //</ProtectedRoute>
           }
         />
