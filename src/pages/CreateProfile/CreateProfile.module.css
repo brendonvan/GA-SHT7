@@ -22,3 +22,19 @@
 .header_p {
   margin-top: 1.85rem;
 }
+
+.selectAvatar {
+  
+}
+
+.chosenAvatar {
+  width: 8.063rem;
+  height: 8.063rem;
+  background: var(--placeholder-background);
+  border-radius: 8rem;
+  margin: 1.875rem 1.875rem;
+}
+
+.availableAvatar {
+
+}

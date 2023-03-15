@@ -26,6 +26,15 @@ const Dashboard = () => {
           <h1 className={styles.header_h1}>Parent Profile</h1>
           <p className={styles.header_p}>Choose an avatar</p>
         </div>
+        <div className={styles.selectAvatar}>
+          <div className={styles.chosenAvatar}></div>
+          <div className={styles.availableAvatar}>
+            <img src="assets/Parent_Avatar_1" alt="choice-1-male" />
+            <img src="assets/Parent_Avatar_2" alt="choice-2-male" />
+            <img src="assets/Parent_Avatar_3" alt="choice-1-female" />
+            <img src="assets/Parent_Avatar_4" alt="choice-2-female" />
+          </div>
+        </div>
       </div>
     </>
   )
