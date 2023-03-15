@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 import styles from './Profiles.module.css'
 import * as profileService from '../../services/profileService'
 
-const Profiles = () => {
-  const [profiles, setProfiles] = useState([])
+const Profiles = ({profile}) => {
+  // const [profiles, setProfiles] = useState([])
 
-  useEffect(() => {
-    const fetchProfiles = async () => {
-      const profileData = await profileService.getAllProfiles()
-      setProfiles(profileData)
-    }
-    fetchProfiles()
-  }, [])
+  // useEffect(() => {
+  //   const fetchProfiles = async () => {
+  //     const profileData = await profileService.getAllProfiles()
+  //     setProfiles(profileData)
+  //   }
+  //   fetchProfiles()
+  // }, [])
 
   return (
     <>
       <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.length ? 
+      {profile.length ? 
         <>
-          {profiles.map(profile =>
+          {profile.map(profile =>
           // Use this link later to replace fixed profile link that currently leads to all profiles
           //Users should have only one profile and right now we can see all profiles created
           <Link to ={`/profiles/${profile._id}`}>
@@ -30,7 +30,9 @@ const Profiles = () => {
       :
         <p>No profiles yet</p>
       }
-      <form action={`/${profiles._id}/child`} method="POST">
+
+      <h1>{profile.name}</h1>
+      <form action={`/${profile._id}/child`} method="POST">
       <div>Name</div> 
       <input type="text"></input>
       <div>Avatar:</div>
