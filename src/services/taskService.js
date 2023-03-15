@@ -2,23 +2,6 @@ import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/task`
 
-async function getAllProfiles() {
-  const res = await fetch(BASE_URL, {
-    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
-  })
-  return await res.json()
-}
-
-async function addPhoto(photoData, profileId) {
-  const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
-    },
-    body: photoData
-  })
-  return await res.json()
-}
 
 async function create(taskData) {
   try {
@@ -34,6 +17,13 @@ async function create(taskData) {
   } catch (error) {
     console.log(error)
   }
+}
+
+async function updateTask(profileId, childId, taskId) {
+  const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+  })
+  return await res.json()
 }
 
 async function deleteTask(taskId) {
@@ -52,7 +42,6 @@ async function deleteTask(taskId) {
 
 
 export { 
-  getAllProfiles,
-  addPhoto, 
-  create, 
+  create,
+  updateTask, 
   deleteTask }
