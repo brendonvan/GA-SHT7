@@ -6,7 +6,7 @@ import Profiles from '../../pages/Profiles/Profiles';
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container}>
-      {true ? // boolean is in place for testing. Once user is finished we can replace with "user"
+      {false ? // boolean is in place for testing. Once user is finished we can replace with "user"
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/feed">
