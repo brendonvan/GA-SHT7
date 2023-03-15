@@ -3,3 +3,28 @@
   align-items: center;
   flex-direction: column;
 }
+
+.header {
+  width: 14.813rem;
+  height: 2.688rem;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  margin: 2.5rem 6.75rem 1.25rem 2.813rem;
+}
+
+.line {
+  width: 21.063rem;
+  border-top: 0.063rem solid #A1A1A1;
+}
+
+.taskList {
+  width: 21.063rem;
+  max-height: 37rem;
+  gap: 2.1rem;
+  overflow-y: scroll;
+}
+
+.taskList::-webkit-scrollbar {
+  display: none;
+}
