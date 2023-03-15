@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 // page components
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
+import CreateProfile from './pages/CreateProfile/CreateProfile'
 import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
@@ -48,6 +49,14 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+        />
+        <Route
+          path="/createProfile"
+          element={
+            //<ProtectedRoute user={user}>
+              <CreateProfile />
+            //</ProtectedRoute>
+          }
         />
         <Route
           path="/dashboard"
