@@ -16,14 +16,20 @@
 }
 
 .header_h1 {
+  font-family: var(--font-family-josefin);
   font-weight: 500;
 }
 
 .header_p {
+  font-family: var(--font-family-josefin);
   margin-top: 1.85rem;
 }
 
 .selectAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap
   
 }
 
@@ -36,5 +42,37 @@
 }
 
 .availableAvatar {
+  width: 24.375rem;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 0rem;
+  row-gap: 4rem;
+}
 
+.gridCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 6.75rem;
+  height: 6.75rem;
+}
+
+.nextBtn {
+  width: 12.5rem;
+  height: 3.25rem;
+  margin: 2rem 0;
+  background: var(--button-background);
+  border-radius: 1.875rem;
+  color: var(--text-button);
+  font-family: var(--font-family-ubuntu);
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
