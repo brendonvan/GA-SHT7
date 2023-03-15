@@ -30,6 +30,7 @@ import './App.css'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [profile, setProfile] = useState('')
+  const [hideNavBar, setHideNavBar] = useState(false);
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -128,7 +129,7 @@ const App = () => {
           }
         />
       </Routes>
-          <NavBar user={user} handleLogout={handleLogout} />
+          <NavBar user={user} handleLogout={handleLogout} hideNavBar={hideNavBar} setHideNavBar={setHideNavBar} />
     </div>
   )
 }
