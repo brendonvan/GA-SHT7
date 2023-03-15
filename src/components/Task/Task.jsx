@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom'
 
 const Task = (props) => {
 
-  const progress = (props.data.coinsEarned / props.data.goalCost) * 100
+  const task = {
+    location: "Kitchen",
+    taskName: "Sweep Floors",
+    reward: 5
+  }
 
   return (
     <Link className={styles.link} to="/tasklist">
       <div className={styles.task}> 
         <div className={styles.left}> 
-          <h3>{ props.data.assgined }</h3>
-          <p className={styles.amountTask}>{ props.data.amountOfTask } tasks</p>
+          <h3>{task.location}</h3>
+          <div className={styles.approveBtn}>
+            Approve
+          </div>
         </div>
         <div className={styles.right}>
-          <div class={`${styles.skillBar} ${styles.skill1}`}>
-            <span class={ styles.skillCount1}></span>
-          </div>
-          <div className={styles.coinsEarned}>
+          <p>{task.taskName}</p>
+          <div className={styles.reward}>
             <img className={styles.coinImg} src="icons/coin.svg" alt="coin-img" />
-            <p className={styles.coinsEarnedText}>{ props.data.coinsEarned } coins earned</p>
+            <p className={styles.coinsEarnedText}>{task.reward}</p>
           </div>
           
         </div>

@@ -24,9 +24,9 @@
   margin-top: 1rem;
 }
 
-.coinsEarned {
+.reward {
   height: 1.368rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: end;
   font-size: 0.9rem;
@@ -41,61 +41,20 @@
   width: 1.149rem;
 }
 
-.wrapper {
-    width: 400px;
-    font-family: 'Roboto', sans-serif;
-    margin:0 auto;
-}
-  
-.skill {
-  margin-bottom: 35px;
-  position: relative;
-  overflow-x:hidden;
-}
-  
-.skill:before {
-  width: 100%;
-  height: 10px;
-  content: "";
-  display: block;
-  position: absolute;
-  background: #959595;
-  bottom: 0;
-}
-  
-.skillBar {
-  width: 100%;
-  height: 10px;
-  background:#4DCC59;
-  display: block;
-  position: relative;
-  border-radius: 1rem;
-  margin: 0.5rem 0 0.5rem 0;
-}
-  
-.skillBar span {
-  position: absolute;
-  border-top: 5px solid #4DCC59;
-  top:30px;
-  padding: 0;
-  font-size: 18px;
-  padding: 3px 0;
-  font-weight: 500;
-}
-  
-.skillBar {
-  position: relative;
-}
-  
-.skill1 .skillCount1 {
-  right: 0;
-}
-  
-.skill1 {
-  width: 50%;
-}
-
 .link {
   text-decoration: none;
   color: black;
+}
+
+.approveBtn {
+  width: 6.938rem;
+  height: 3.25rem;
+  margin-top: 1rem;
+  color: #FFFFFF;
+  background: #116ACC;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
