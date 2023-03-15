@@ -1,9 +1,8 @@
 .screen1, .screen2, .screen3 { 
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 60vh;
+  height: 100vh;
   justify-content: space-around;
 }
 
@@ -18,8 +17,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* background-color: red; */
-  /* border: 2px solid blue; */
+}
+
+h1 {
+  text-align: center;
 }
 
 .dot {
@@ -36,25 +37,20 @@
   background-color: black;
 }
 
-.txt {
-  font-size: 1.5rem;
-}
-
-.img {
-  width: 90%;
-  height: 30%;
-}
-
 .screen1 > button, .screen2 > button, .screen3 > button {
-  width: 17em;
-  height: 5em;
+  width: 15em;
+  height: 3.5em;
   font-weight: 800;
-  font-size: 1em;
   border: none;
   padding: 0;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 
 .buttonTxt {
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+img {
+  width: 375px;
+  height: 375px;
 }
