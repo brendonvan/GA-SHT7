@@ -51,7 +51,13 @@ const App = () => {
   }, [user])
 
 
-  // const
+  const handleAddChild = async (profileId, childData) => {
+    try {
+      await profileService.createChild(childData, profileId)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
 
@@ -103,7 +109,7 @@ const App = () => {
           path="/profiles"
           element={
             //<ProtectedRoute user={user}>
-              <Profiles profile={profile}/>
+              <Profiles profile={profile} handleAddChild={handleAddChild}/>
             //</ProtectedRoute>
           }
         />

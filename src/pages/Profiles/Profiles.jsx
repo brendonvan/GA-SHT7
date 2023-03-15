@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Profiles.module.css'
 import * as profileService from '../../services/profileService'
 
-const Profiles = ({profile}) => {
+const Profiles = ({profile, handleAddChild}) => {
   // const [profiles, setProfiles] = useState([])
 
   // useEffect(() => {
@@ -13,6 +13,26 @@ const Profiles = ({profile}) => {
   //   }
   //   fetchProfiles()
   // }, [])
+
+
+  // const profile = location.state?.profile
+
+  const [form, setForm] = useState({
+    name: '',
+    avatar: '',
+    score: '',
+    Goal: '',
+    
+  })
+
+  const handleChange = ({ target }) => {
+    setForm({ ...form, [target.name]: target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleAddChild(form)
+  }
 
   return (
     <>
@@ -32,15 +52,15 @@ const Profiles = ({profile}) => {
       }
 
       <h1>{profile.name}</h1>
-      <form action={`/${profile._id}/child`} method="POST">
+      <form onSubmit={handleSubmit}>
       <div>Name</div> 
-      <input type="text"></input>
+      <input onChange={handleChange} type="text"></input>
       <div>Avatar:</div>
-      <input type="text"></input>
+      <input onChange={handleChange} type="text"></input>
       <div>Score:</div>
-      <input type="number"></input>
+      <input onChange={handleChange} type="number"></input>
       <div>Goal:</div>
-      <input type="text"></input>
+      <input onChange={handleChange} type="text"></input>
       <div></div>
       <input id="submit" type="submit" value="Add Child"/>
     </form>
