@@ -1,5 +1,6 @@
 import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
+import Profiles from '../../pages/Profiles/Profiles';
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -20,6 +21,8 @@ const NavBar = ({ user, handleLogout }) => {
           </li>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/profiles">
+              {/* Change to this as users should only be able to access one profile
+               <Link className={styles.link} to={`/profiles/${profile._id}`}> */}
               <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
               <div>Profile</div>
             </Link>
