@@ -34,16 +34,43 @@ const Onboarding = ({onboardingPage, turnPage}) => {
     <>
     <div className={styles.screen1}>
 
-      {/* Remove this line */}
-      <h1>Onboarding Screen</h1>
+      <h1>Page 1 Onboarding Screen</h1>
 
       <h1 className={styles.img}>IMG</h1>
 
       <h3 className={styles.txt}>Set Goals Together</h3>
       <div className={styles.pageTracker}>
+        <div className={styles.dot1}></div>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
+      </div>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
+    </div>
+    <div className={styles.screen2}>
+
+      <h1>Page 2 Onboarding Screen</h1>
+
+      <h1 className={styles.img}>IMG</h1>
+
+      <h3 className={styles.txt}>Stay on Track Together</h3>
+      <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
+        <div className={styles.dot2}></div>
+        <div className={styles.dot}></div>
+      </div>
+      <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
+    </div>
+    <div className={styles.screen3}>
+
+      <h1>Page 3 Onboarding Screen</h1>
+
+      <h1 className={styles.img}>IMG</h1>
+
+      <h3 className={styles.txt}>Celebrate Together</h3>
+      <div className={styles.pageTracker}>
+        <div className={styles.dot}></div>
+        <div className={styles.dot}></div>
+        <div className={styles.dot3}></div>
       </div>
       <button onClick={turnPage}><span className={styles.buttonTxt}>Next</span></button>
     </div>
