@@ -9,6 +9,8 @@ import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile
 import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreateParentProfileSetup'
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
 import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
+import Feed from './pages/Feed/Feed'
+import Map from './pages/Map/Map'
 import ParentProfile from './pages/ParentProfile/ParentProfile'
 import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -108,6 +110,22 @@ const App = () => {
           element={
             //<ProtectedRoute user={user}>
               <CreateKidProfileSetup />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/feed"
+          element={
+            //<ProtectedRoute user={user}>
+              <Feed />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            //<ProtectedRoute user={user}>
+              <Map />
             //</ProtectedRoute>
           }
         />
