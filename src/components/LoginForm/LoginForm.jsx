@@ -33,10 +33,10 @@ const LoginForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}></label>
+        <label htmlFor="email" className={styles.label}>Email</label>
+        <br></br>
         <input
           type="text"
-          placeholder="Email"
           autoComplete="off"
           id="email"
           value={formData.email}
@@ -45,10 +45,10 @@ const LoginForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}></label>
+        <label htmlFor="password" className={styles.label}>Password</label>
+        <br></br>
         <input
           type="password"
-          placeholder="Password"
           autoComplete="off"
           id="password"
           value={formData.pw}

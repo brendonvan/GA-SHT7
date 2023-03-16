@@ -6,13 +6,13 @@
   margin-bottom: 30px;
 }
 
-.label {
+label {
   display: flex;
   justify-content: start;
 }
 
 .inputContainer {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .inputContainer input, .button {
@@ -31,16 +31,4 @@
   width: 100%;
   background-color: #454EE9;
   color: white;
-}
-
-#photo-upload input {
-  padding-left: 1rem;
-}
-
-.photo * {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
 }
