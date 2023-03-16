@@ -73,6 +73,7 @@ const App = () => {
     }
   }
 
+  
   return (
     <div className='app'>
       <Routes>
@@ -145,7 +146,7 @@ const App = () => {
           path="/profiles"
           element={
             //<ProtectedRoute user={user}>
-              <Profiles profile={profile} handleAddChild={handleAddChild}/>
+              <Profiles profile={profile} handleAddChild={handleAddChild} handleLogout={handleLogout}/>
             //</ProtectedRoute>
           }
         />
@@ -164,7 +165,7 @@ const App = () => {
           }
         />
       </Routes>
-          <NavBar user={user} handleLogout={handleLogout} />
+          <NavBar user={user} handleLogout={handleLogout} profile={profile}/>
     </div>
   )
 }

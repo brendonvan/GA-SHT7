@@ -34,6 +34,7 @@ const CreateParentProfile = ({profile, handleEditProfile}) => {
   const handleProfileSubmit = (e) => {
     e.preventDefault()
     handleEditProfile(form)
+    console.log(profile)
   }
 
   return (

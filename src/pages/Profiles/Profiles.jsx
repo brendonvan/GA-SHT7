@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Profiles.module.css'
 import * as profileService from '../../services/profileService'
 
-const Profiles = ({ profile, handleAddChild }) => {
+const Profiles = ({ profile, handleAddChild, handleLogout }) => {
   // const [profiles, setProfiles] = useState([])
 
   // useEffect(() => {
@@ -91,6 +91,8 @@ const Profiles = ({ profile, handleAddChild }) => {
 
         {/* <input id="submit" type="submit" value="Add Child"/> */}
       </form>
+
+      <button onClick={handleLogout}>Logout</button>
     </>
   )
 }
