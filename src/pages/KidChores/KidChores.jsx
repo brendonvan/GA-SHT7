@@ -42,8 +42,6 @@ export default function KidChores() {
     
   }
 
-
-
   const preDefinedTasks = [
     {
       id: "123",
