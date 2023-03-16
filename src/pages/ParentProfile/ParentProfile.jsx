@@ -16,10 +16,9 @@ const ParentProfile = () => {
         </div>
         <div className={styles.selectAvatar}>
           <div className={styles.chosenAvatar}></div>
-
+          <h1 className={styles.profileName}>Tammy</h1>
         </div>
       </div>
-      <div className={styles.nextBtn}>Next</div>
     </div>
   )
 }
