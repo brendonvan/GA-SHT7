@@ -6,25 +6,25 @@
 }
 
 .inputContainer {
-  margin: 0.8rem 0;
+  margin-top: 1.5rem;
 }
 
 .inputContainer input, .button {
-  padding: 0.5rem 1.5rem;
-  font-size: 1.5rem;
+  padding: 0.8rem 3rem;
+  font-size: 1rem;
   border-radius: 40px;
   outline: none;
-  border: 2px solid black;
+  border: 1px solid #9CA3AF;
 }
 
 .button {
+  font-family: "SF Pro";
+  font-size: 1rem;
+  border: none;
   margin-top: 1rem;
   width: 70%;
-  box-shadow: 1px solid rgb(179, 174, 174);
+  background-color: #454EE9;
+  color: white;
 }
 
-.button:hover {
-  background-color: rgb(146, 142, 142);
-  cursor: pointer;
-}
 

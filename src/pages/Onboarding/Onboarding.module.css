@@ -7,6 +7,7 @@
 }
 
 .screen1 h1, .screen2 h1, .screen3 h1 {
+  font-family: "Josefin Sans";
   padding: 3rem;
 }
 
@@ -45,10 +46,19 @@ h1 {
   padding: 0;
   border-radius: 30px;
   z-index: 999;
+  background-color: #454EE9;
+  color: white;
+}
+
+.profileCreate {
+  text-decoration: none;
+  color: white;
 }
 
 .buttonTxt {
   font-size: 1.5em;
+  font-weight: 510;
+  font-family: "SF Pro";
 }
 
 img {

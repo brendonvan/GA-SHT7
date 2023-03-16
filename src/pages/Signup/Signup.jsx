@@ -13,8 +13,7 @@ const Signup = props => {
   return (
     <main className={styles.container}>
       <div>
-        <h1>Chores</h1>
-        <h1>for</h1>
+        <h1>Chores for</h1>
         <h1>Coins</h1>
         <img src="/assets/Welcome_Screen.png" className={styles.image}></img>
         <p>{message}</p>

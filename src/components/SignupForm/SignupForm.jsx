@@ -49,10 +49,9 @@ const SignupForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
-        <br></br>
         <input
           type="text"
+          placeholder="Name"
           autoComplete="off"
           id="name"
           value={name}
@@ -61,10 +60,9 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <br></br>
         <input
           type="text"
+          placeholder="Email"
           autoComplete="off"
           id="email"
           value={email}
@@ -73,10 +71,9 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <br></br>
         <input
           type="password"
+          placeholder="Password"
           autoComplete="off"
           id="password"
           value={password}
@@ -85,12 +82,9 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
-        </label>
-        <br></br>
         <input
           type="password"
+          placeholder="Confirm Password"
           autoComplete="off"
           id="confirm"
           value={passwordConf}
