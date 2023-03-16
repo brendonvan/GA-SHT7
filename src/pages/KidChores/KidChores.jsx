@@ -1,8 +1,10 @@
 import styles from './KidChores.module.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function KidChores() {
+
+const navigate = useNavigate()
 
   const preDefinedTasks = [
     {
@@ -41,7 +43,7 @@ export default function KidChores() {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" />
+        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
           <h1 className={styles.header_h1}>Kid Profile</h1>
           <p className={styles.header_p}>Select your Child's Primary Chores</p>
         </div>
