@@ -14,7 +14,8 @@ const CreateParentProfileSetup = () => {
           <p className={styles.header_p}>What's your name?</p>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>

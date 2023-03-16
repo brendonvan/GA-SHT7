@@ -10,8 +10,8 @@ const ParentProfile = () => {
           <h1 className={styles.header_h1}>Parent Profile</h1>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
           {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
           <h1 className={styles.profileName}>Tammy</h1>
         </div>
         <div className={styles.childrenList}>
