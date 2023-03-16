@@ -50,11 +50,13 @@
 .formField {
   width: 17.75rem;
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-flow: column wrap;
 }
 
 .nextBtn {
+  margin-top: 18rem;
   width: 12.5rem;
   height: 3.25rem;
   margin-bottom: 3.688rem;
