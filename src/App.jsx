@@ -10,6 +10,7 @@ import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile
 import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreateParentProfileSetup'
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
 import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
+import KidChores from './pages/KidChores/KidChores'
 import Feed from './pages/Feed/Feed'
 import Map from './pages/Map/Map'
 import ParentProfile from './pages/ParentProfile/ParentProfile'
@@ -181,6 +182,12 @@ const App = () => {
           path="/chores"
           element= {
             <Chores />
+          }
+        />
+        <Route 
+          path="/kidChores"
+          element= {
+            <KidChores />
           }
         />
         <Route
