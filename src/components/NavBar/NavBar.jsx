@@ -22,8 +22,7 @@ const NavBar = ({ user, handleLogout }) => {
           </li>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/profiles">
-               {/* Change to this as users should only be able to access one profile
-               <Link className={styles.link} to={`/profiles/${profile._id}`}> */}
+               {/* Update different avatar for different profiles */}
               <img className={styles.navItemImgProfile} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_Female_2" />
               <div>Profile</div>
             </Link>
