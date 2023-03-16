@@ -17,6 +17,26 @@ export default function KidChores() {
   const childId = useParams().id
 
 
+  const [form, setForm] = useState({
+    taskName: '',
+  })
+
+  const handleChange = ({ target }) => {
+    setForm({ ...form, taskName: target.value })
+    console.log(form)
+  }
+
+  const clearInput = () => {
+    setForm({ taskName: '' })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleAddTask(form)
+  }
+
+
+
   const preDefinedTasks = [
     {
       id: "123",
@@ -48,7 +68,6 @@ export default function KidChores() {
 
   const [child, setChild] = useState({});
   const [tasks, setTasks] = useState(preDefinedTasks);
-  const [newTask, setNewTask] = useState('')
 
   async function fetchChild() {
     setChild(await profileService.showChild(profile.user.profile, childId))
@@ -60,10 +79,10 @@ export default function KidChores() {
     task.selected = !task.selected
   }
 
-  async function handleAddTask() {
-    console.log(tasks)
-    console.log(await taskService.create(profile.user.profile, childId, {taskName: newTask}))
-
+  async function handleAddTask(form) {
+    const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: false }
+    setTasks(tasks => [...tasks, newTask])
+    setForm({ taskName: '' })
   }
 
   useEffect(() => {
@@ -97,10 +116,13 @@ export default function KidChores() {
                 }
               )}
             </form>
-              <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={() => { handleAddTask() }}>+</div>
+              <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={handleSubmit}>+</div>
                 <input type="text"
+                name='taskName'
                   placeholder='Create New Chore'
-                  onChange={(e) => setNewTask(e.target.value)}  />
+                  value={form.taskName}
+                  onChange={handleChange}
+                  autoComplete='off'  />
               </div>
           </div>
         </div>
