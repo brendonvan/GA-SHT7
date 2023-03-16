@@ -61,7 +61,7 @@ const Onboarding = ({onboardingPage, turnPage}) => {
     <div className={styles.screen3}>
       <img src="/assets/Onboarding_3.png" className={styles.img}></img>
       <h1>Incentivize them to reach their goals through rewards</h1>
-      <button onClick={turnPage}><span className={styles.buttonTxt}><Link to = "/createParentProfile">Create Profile!</Link></span></button>
+      <button onClick={turnPage}><span className={styles.buttonTxt}><Link className={styles.profileCreate}to = "/createParentProfile">Create Profile!</Link></span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>

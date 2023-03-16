@@ -3,9 +3,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
-
 
 .label {
   display: flex;
@@ -17,11 +16,25 @@
 }
 
 .inputContainer input, .button {
-  padding: 0.5rem 3rem;
-  font-size: 0.5rem;
-  border-radius: 40px;
+  padding: 0.8rem 3rem;
+  font-size: 1rem;
+  border-radius: 30px;
   outline: none;
-  border: 2px solid black;
+  border: 1px solid #9CA3AF;
+}
+
+.button {
+  font-family: "SF Pro";
+  font-size: 1rem;
+  border: none;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #454EE9;
+  color: white;
+}
+
+#photo-upload input {
+  padding-left: 1rem;
 }
 
 .photo * {

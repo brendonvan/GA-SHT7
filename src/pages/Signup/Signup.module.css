@@ -1,8 +1,13 @@
 .container {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   height: 100vh;
+}
+
+.container h1 {
+  font-family: "Josefin Sans";
+  font-size: 3rem;
 }
 
 .container * {
@@ -17,4 +22,5 @@
 .login {
   color: black;
   text-decoration: none;
+  padding-bottom: 20px;
 }
