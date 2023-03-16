@@ -53,3 +53,51 @@
   letter-spacing: -0.063rem;
   color: var(--text-base);
 }
+
+.childrenList {
+  margin: 3rem 0.3rem 1rem 0.3rem;
+}
+
+
+.listLabel {
+  font-size: 1.4rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 400;
+  letter-spacing: -0.063rem;
+  color: var(--text-base);
+  margin-bottom: 0.1rem;
+}
+
+.line {
+  border-top: 4px solid var(--text-base);
+}
+
+.addChildButton {
+  width: 100%;
+  height: 4rem;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+}
+
+.addBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--add-child-btn);
+  text-align: center;
+  line-height: 2.7rem;
+  font-size: 2rem;
+  color: var(--text-button);
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+.addText {
+  font-family: var(--font-family-josefin);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
+}
+

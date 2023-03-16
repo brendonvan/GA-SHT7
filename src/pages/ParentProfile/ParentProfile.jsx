@@ -18,6 +18,14 @@ const ParentProfile = () => {
           <div className={styles.chosenAvatar}></div>
           <h1 className={styles.profileName}>Tammy</h1>
         </div>
+        <div className={styles.childrenList}>
+          <h1 className={styles.listLabel}>Kids</h1>
+          <div className={styles.line}></div>
+          <div className={styles.addChildButton}>
+            <div className={styles.addBtn}>+</div>
+            <div className={styles.addText}>Add Child</div>
+          </div>
+        </div>
       </div>
     </div>
   )
