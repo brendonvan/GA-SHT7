@@ -1,11 +1,28 @@
 import styles from './CreateKidProfileSetup.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+
+// redux actions
+import { setProfileName, setShowCreateChild } from '../../actions';
+
 
 const CreateKidProfileSetup = ({ handleChange, handleSubmit, newChildForm, avatarSelection }) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
 
-  // const [firstName, setFirstName] = useState("");
+  function handleSubmit() {
+    handleFinishChildCreate()
+    console.log(profile)
+    navigate('/parentprofile')
+  }
+  
+  function handleFinishChildCreate() {
+    dispatch(setShowCreateChild(profile, false))
+    console.log('finish onboarding', profile.showOnboarding)
+  }
 
-  console.log(avatarSelection)
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

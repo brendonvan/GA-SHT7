@@ -1,37 +1,32 @@
 import styles from './Landing.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { incAction, decAction } from '../../actions'
 import { useState } from 'react'
 
-const Landing = ({ user, Onboarding }) => {
-  const preview = useSelector(state => state.counterReducer);
+// redux actions
+import { setOnboarding } from '../../actions'
+
+// components
+import Onboarding from '../Onboarding/Onboarding'
+
+const Landing = () => {
+  const profile = useSelector(state => state.profileReducer);
   const dispatch = useDispatch();
 
-    const [onboardingPage, setOnboardingPage] = useState(1)
-    const [showOnboarding, setShowOnboarding] = useState(true)
+  const [onboardingPage, setOnboardingPage] = useState(1)
 
   function turnPage(evt){
     setOnboardingPage(onboardingPage+1)
     if (onboardingPage >= 3){
-      setShowOnboarding(false)
+      dispatch(setOnboarding(false))
     }
-    console.log(onboardingPage)
-    console.log(showOnboarding)
+    console.log('onboarding', onboardingPage)
+    console.log('show', profile.showOnboarding)
   }
-  
-  // function handleIncrement() {
-  //   dispatch(incAction());
-  // }
-
-  // function handleDecrement() {
-  //   dispatch(decAction());
-    
-  // }
 
   return (
     <main className={styles.container}>
       <div>
-        {showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
+        {profile.showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
         {/* <h2>Counter</h2>
         <div>
           <button onClick={() => {handleDecrement()}}>-</button>

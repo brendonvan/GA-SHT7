@@ -1,35 +1,20 @@
 import styles from './CreateParentProfile.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-const CreateParentProfile = ({profile, handleEditProfile}) => {
-  // test data
-  const taskList = {
-    assgined: "Billy",
-    amountOfTask: 2,
-    coinsEarned: 10,
-    goalCost: 100
-  }
-  const taskList2 = {
-    assgined: "Jimmy",
-    amountOfTask: 60,
-    coinsEarned: 2,
-    goalCost: 10
-  }
+// redux actions
+import { setProfileAvatar } from '../../actions';
 
-  const [form, setForm] = useState({
-    avatar: profile.avatar,
-  })
+const CreateParentProfile = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer);
 
-  const handleProfileChange = (avatar) => {
-    setForm({ ...form, avatar })
-    console.log('form', form)
-    console.log('avatar:', avatar)
-  }
-
-  const handleProfileSubmit = (e) => {
-    e.preventDefault()
-    handleEditProfile(form)
-    console.log(profile)
+  const handleProfileChange = (profile, avatar) => {
+    dispatch(setProfileAvatar(profile, avatar))
+    console.log('user', profile.user)
+    console.log('avatar:', profile.profileAvatar)
   }
 
   return (
@@ -41,17 +26,16 @@ const CreateParentProfile = ({profile, handleEditProfile}) => {
           <p className={styles.header_p}>Choose an avatar</p>
         </div>
         <div className={styles.selectAvatar}>
-          {/* TODO: Update this name for current profile */}
-          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
+          <img className={styles.chosenAvatar} src={profile.profileAvatar} alt={profile.profileAvatar}></img>
           <div className={styles.availableAvatar}>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_1.png" alt="choice-1-male" onClick={() => handleProfileChange("/assets/Parent_Avatar_1.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_2.png" alt="choice-2-male" onClick={() => handleProfileChange("/assets/Parent_Avatar_2.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_3.png" alt="choice-1-female" onClick={() => handleProfileChange("/assets/Parent_Avatar_3.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_4.png" alt="choice-2-female" onClick={() => handleProfileChange("/assets/Parent_Avatar_4.png")} /></div>
+            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_1.png" alt="choice-1-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_1.png")} /></div>
+            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_2.png" alt="choice-2-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_2.png")} /></div>
+            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_3.png" alt="choice-1-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_3.png")} /></div>
+            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_4.png" alt="choice-2-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_4.png")} /></div>
           </div>
         </div>
       </div>
-      <div className={styles.nextBtn} onClick={handleProfileSubmit}>Next</div>
+      <div className={styles.nextBtn} onClick={() => { navigate('/createparentprofile/setup') }} >Next</div>
     </div>
   )
 }

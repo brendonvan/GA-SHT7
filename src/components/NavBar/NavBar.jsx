@@ -1,12 +1,17 @@
 import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+
 import Profiles from '../../pages/Profiles/Profiles';
 
 
-const NavBar = ({ user, handleLogout, profile }) => {
+const NavBar = () => {
+  const profile = useSelector(state => state.profileReducer);
+  
   return (
     <nav className={styles.container}>
-      {user ?
+      {profile && !profile.showOnboarding && !profile.showCreateChild ?
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/feed">

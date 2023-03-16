@@ -1,5 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -29,6 +30,9 @@ import TaskList from './pages/TaskList/TaskList'
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
+// redux actions
+import { setCurrentUser } from '../src/actions'
+
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
@@ -38,70 +42,60 @@ import * as taskService from './services/taskService'
 import './App.css'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
-  const [profile, setProfile] = useState('')
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
 
   const handleLogout = () => {
     authService.logout()
-    setUser(null)
+    dispatch(setCurrentUser(profile.user, null))
     navigate('/')
   }
 
   const handleSignupOrLogin = () => {
-    setUser(authService.getUser())
+    dispatch(setCurrentUser(profile, authService.getUser()))
   }
 
   useEffect(() => {
     const fetchProfile = async () => {
-      console.log('profileID:', user.profile._id)
-      console.log('profile:', user.profile)
-      console.log('profile:', typeof user.profile)
-    const profile = await profileService.showProfile(user.profile)
-    setProfile(profile)
+      dispatch(setCurrentUser(profile, authService.getUser().profile))
+      console.log('profileID:', authService.getUser().profile)
+      console.log('profile:', profile.user)
+      // const profile = await profileService.showProfile(user.userId)
+      // setProfile(profile)
     }
-    if (user) fetchProfile()
-  }, [user])
+    fetchProfile()
+  }, [])
 
 
   const handleAddChild = async (childData) => {
     try {
-      await profileService.createChild(user.profile, childData)
+      await profileService.createChild(profile.user, childData)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const handleEditProfile = async (profileData) => {
-    try {
-      await profileService.updateProfile(user.profile, profileData)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // const handleSetTempChildName = () => {
-  //   s
-  // }
-
-  
   return (
     <div className='app'>
       <Routes>
-        <Route path="/" element={<Landing user={user} Onboarding={Onboarding}/>} />
         <Route
-          path="/signup"
+          path="/"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
+        <Route 
+          path="/onboarding"
+          element={<Landing user={profile.user} Onboarding={Onboarding}
+        />} />
         <Route
           path="/createparentprofile"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfile profile={profile} handleEditProfile={handleEditProfile}/>
+              <CreateParentProfile />
             //</ProtectedRoute>
           }
         />
@@ -109,7 +103,7 @@ const App = () => {
           path="/createparentprofile/setup"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfileSetup profile={profile} />
+              <CreateParentProfileSetup />
             //</ProtectedRoute>
           }
         />
@@ -185,7 +179,7 @@ const App = () => {
           path="/profiles"
           element={
             //<ProtectedRoute user={user}>
-              <Profiles profile={profile} CreateKidProfile={CreateKidProfile} handleAddChild={handleAddChild} handleLogout={handleLogout}/>
+              <Profiles profile={profile} handleAddChild={handleAddChild}/>
             //</ProtectedRoute>
           }
         />
@@ -204,13 +198,15 @@ const App = () => {
         <Route
           path="/change-password"
           element={
-            <ProtectedRoute user={user}>
+            <ProtectedRoute user={profile.user}>
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
             </ProtectedRoute>
           }
         />
       </Routes>
-          <NavBar user={user} handleLogout={handleLogout} profile={profile}/>
+
+
+      <NavBar user={profile.user} handleLogout={handleLogout} />
     </div>
   )
 }

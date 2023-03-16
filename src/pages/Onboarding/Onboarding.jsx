@@ -1,34 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './Onboarding.module.css'
 
-// import OnboardingExpenses from "../../components/OnboardingExpenses/OnboardingExpenses";
-
+// redux actions
+import { setOnboarding } from '../../actions';
 
 const Onboarding = ({onboardingPage, turnPage}) => {
-  // const [formData, setFormData] = useState({
-  //   //? Awaiting backend model
-  // })
-
-  // const navigate = useNavigate()
-
-  // const handleChange = e => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value })
-  // }
-
-  // const handleSubmit = async evt => {
-  //   evt.preventDefault()
-  //   try {
-  //     //? budgetService not created yet
-  //     await budgetService.create(formData)
-  //     navigate('/')
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
 
   return (
     <>
@@ -61,7 +43,7 @@ const Onboarding = ({onboardingPage, turnPage}) => {
     <div className={styles.screen3}>
       <img src="/assets/Onboarding_3.png" className={styles.img}></img>
       <h1>Incentivize them to reach their goals through rewards</h1>
-      <button onClick={turnPage}><span className={styles.buttonTxt}><Link className={styles.profileCreate}to = "/createParentProfile">Create Profile!</Link></span></button>
+      <button onClick={turnPage}><span className={styles.buttonTxt}><Link className={styles.profileCreate}to = {"/createparentprofile"}>Create Profile!</Link></span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>
