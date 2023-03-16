@@ -1,6 +1,20 @@
 import styles from './ParentProfile.module.css'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+
+// redux actions
+import { setProfileName } from '../../actions';
 
 const ParentProfile = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
+
+  useEffect(() => {
+    console.log(profile)
+    
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -10,9 +24,8 @@ const ParentProfile = () => {
           <h1 className={styles.header_h1}>Parent Profile</h1>
         </div>
         <div className={styles.selectAvatar}>
-          {/* TODO: Update this name for current profile */}
-          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
-          <h1 className={styles.profileName}>Tammy</h1>
+          <img className={styles.chosenAvatar} src={profile.profileAvatar} alt={profile.profileAvatar}></img>
+          <h1 className={styles.profileName}>{profile.profileName}</h1>
         </div>
         <div className={styles.childrenList}>
           <h1 className={styles.listLabel}>Kids</h1>
@@ -24,7 +37,7 @@ const ParentProfile = () => {
             <p className={styles.kidName}>Billy</p>
           </div>
 
-          <div className={styles.addChildButton}>
+          <div className={styles.addChildButton} onClick={() => { navigate('/createkidprofile') }}>
             <div className={styles.addBtn}>+</div>
             <div className={styles.addText}>Add Child</div>
           </div>

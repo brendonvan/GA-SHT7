@@ -1,10 +1,33 @@
 import styles from './CreateParentProfileSetup.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
-const CreateParentProfileSetup = ({profile}) => {
+// redux actions
+import { setProfileName, setOnboarding } from '../../actions';
+
+// services
+import * as profileService from '../../services/profileService'
+
+const CreateParentProfileSetup = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
 
   const [firstName, setFirstName] = useState("");
 
+  function handleNext() {
+    dispatch(setProfileName(profile, firstName))
+    handleFinishOnboarding()
+    profileService.createProfile(profile)
+    console.log(profile)
+    navigate('/parentprofile')
+  }
+
+  function handleFinishOnboarding() {
+    dispatch(setOnboarding(profile, false))
+    console.log('finish onboarding', profile.showOnboarding)
+  }
 
   return (
     <div className={styles.container}>
@@ -15,8 +38,7 @@ const CreateParentProfileSetup = ({profile}) => {
           <p className={styles.header_p}>What's your name?</p>
         </div>
         <div className={styles.selectAvatar}>
-          {/* TODO: Update this name for current profile */}
-          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
+          <img className={styles.chosenAvatar} src={profile.profileAvatar} alt={profile.profileAvatar}></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>
@@ -33,7 +55,7 @@ const CreateParentProfileSetup = ({profile}) => {
           </div>
         </div>
       </div>
-      <div className={styles.nextBtn}>Next</div>
+      <div className={styles.nextBtn} onClick={() => handleNext()}>Next</div>
     </div>
   )
 }
