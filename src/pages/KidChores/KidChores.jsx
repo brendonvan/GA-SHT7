@@ -16,7 +16,6 @@ export default function KidChores() {
   const profile = useSelector(state => state.profileReducer)
   const childId = useParams().id
 
-const navigate = useNavigate()
 
   const preDefinedTasks = [
     {
