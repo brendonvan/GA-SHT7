@@ -1,10 +1,11 @@
 import styles from './ChoreBoard.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
 const ChoreBoard = () => {
   const [name, setName] = useState("Billy");
+  const navigate = useNavigate();
 
   const tasks = [
     {
@@ -16,8 +17,7 @@ const ChoreBoard = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-          <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" />
-          {/* TODO: update the name to be for current child */}
+        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />          {/* TODO: update the name to be for current child */}
           <h1 className={styles.header_h1}>{name}'s Chore Board</h1>
         </div>
         <div className={styles.selectAvatar}>
