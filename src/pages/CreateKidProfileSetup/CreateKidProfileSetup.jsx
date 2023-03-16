@@ -1,12 +1,7 @@
 import styles from './CreateKidProfileSetup.module.css'
 import { useState } from 'react';
-//import { useDispatch, useSelector } from 'react-redux'
-
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
 const CreateKidProfileSetup = () => {
-  // test data
 
   const [firstName, setFirstName] = useState("");
 
