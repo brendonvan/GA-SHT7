@@ -19,7 +19,7 @@
 }
 
 .header_h1 {
-  padding-top: 1rem;
+  padding-top: 2rem;
   font-family: var(--font-family-josefin);
   font-weight: 500;
 }
@@ -44,45 +44,4 @@
   background: var(--placeholder-background);
   border-radius: 8rem;
   margin: 1.875rem 1.875rem;
-}
-
-.availableAvatar {
-  width: 24.375rem;
-  margin: 2rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 0rem;
-  row-gap: 4rem;
-}
-
-.gridCell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar {
-  width: 6.75rem;
-  height: 6.75rem;
-}
-
-.nextBtn {
-  width: 12.5rem;
-  height: 3.25rem;
-  margin-bottom: 3.688rem;
-  background: var(--button-background);
-  border-radius: 1.875rem;
-  color: var(--text-button);
-  font-family: var(--font-family-ubuntu);
-  font-weight: 500;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar:hover {
-  border: 5px solid #454EE9;
-  border-radius: 8rem;
 }
