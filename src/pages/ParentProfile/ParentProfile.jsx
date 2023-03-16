@@ -4,18 +4,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // redux actions
-import { setProfileName } from '../../actions';
+import { setProfileName } from '../../actions'
+
+// services
+import * as profileService from '../../services/profileService'
 
 const ParentProfile = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
 
+  const [list, setList] = useState([]);
+
   useEffect(() => {
-    console.log(profile)
-    
+    checkForChildren()
   }, [])
 
+  async function checkForChildren() {
+    if(profile){
+      const db = await profileService.showProfile(profile.user.profile)
+      setList(db.child)
+    }
+  }
+  
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -27,20 +38,29 @@ const ParentProfile = () => {
           <img className={styles.chosenAvatar} src={profile.profileAvatar} alt={profile.profileAvatar}></img>
           <h1 className={styles.profileName}>{profile.profileName}</h1>
         </div>
-        <div className={styles.childrenList}>
+        <div className={styles.label}>
           <h1 className={styles.listLabel}>Kids</h1>
           <div className={styles.line}></div>
+        </div>
+        <div className={styles.childrenList}>
+          
 
           {/* TODO: Map this for each child in array */}
-          <div className={styles.kidItem}>
-            <img className={styles.kidImg} src="/assets/Kid_3.png" alt="Kid_3_picture" />
-            <p className={styles.kidName}>Billy</p>
-          </div>
+          { list.length ? (
+            <h1 className={styles.childrenList}>{list.map((child) => 
+                <div className={styles.kidItem}>
+                  <img className={styles.kidImg} src={child.avatar} alt={child.avatar} />
+                  <p className={styles.kidName}>{child.name}</p>
+                </div>
+              )}</h1>
+          ) : "" }
 
-          <div className={styles.addChildButton} onClick={() => { navigate('/createkidprofile') }}>
-            <div className={styles.addBtn}>+</div>
-            <div className={styles.addText}>Add Child</div>
-          </div>
+          
+
+        </div>
+        <div className={styles.addChildButton} onClick={() => { navigate('/createkidprofile') }}>
+          <div className={styles.addBtn}>+</div>
+          <div className={styles.addText}>Add Child</div>
         </div>
       </div>
     </div>
