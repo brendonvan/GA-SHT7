@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
+import Landing from './pages/Landing/Landing'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile'
@@ -12,7 +13,10 @@ import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfil
 import Feed from './pages/Feed/Feed'
 import Map from './pages/Map/Map'
 import ParentProfile from './pages/ParentProfile/ParentProfile'
-import Landing from './pages/Landing/Landing'
+
+// TODO: Not being used currently
+
+import ChoreBoard from './pages/ChoreBoard/ChoreBoard'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
@@ -137,6 +141,18 @@ const App = () => {
             //</ProtectedRoute>
           }
         />
+
+
+        {/* TODO: Routes not being used currently*/}
+        <Route
+          path="/choreboard"
+          element={
+            //<ProtectedRoute user={user}>
+              <ChoreBoard />
+            //</ProtectedRoute>
+          }
+        />  
+
         <Route
           path="/dashboard"
           element={
@@ -176,7 +192,9 @@ const App = () => {
           }
         />
       </Routes>
-          <NavBar user={user} handleLogout={handleLogout} />
+
+
+      <NavBar user={user} handleLogout={handleLogout} />
     </div>
   )
 }
