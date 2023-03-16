@@ -1,4 +1,5 @@
 import styles from './ChoreBoard.module.css'
+import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
 const ChoreBoard = () => {
 
@@ -11,10 +12,11 @@ const ChoreBoard = () => {
           <h1 className={styles.header_h1}>Billy's Chore Board</h1>
         </div>
         <div className={styles.selectAvatar}>
-          <img className={styles.chosenAvatar} src="/assets/Kid_4.png" alt="Kid_4_Image"></img>
+          <img className={styles.chosenAvatar} src="/assets/Kid_3.png" alt="Kid_3_Image"></img>
           {/* TODO: Update this name for current profile */}
           <h1 className={styles.profileName}>Billy</h1>
         </div>
+        <ProgressBar />
 
       </div>
     </div>
