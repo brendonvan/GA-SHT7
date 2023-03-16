@@ -9,6 +9,7 @@ import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile
 import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreateParentProfileSetup'
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
 import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
+import ParentProfile from './pages/ParentProfile/ParentProfile'
 import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
@@ -80,7 +81,7 @@ const App = () => {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
-          path="/createParentProfile"
+          path="/createparentprofile"
           element={
             //<ProtectedRoute user={user}>
               <CreateParentProfile />
@@ -88,7 +89,7 @@ const App = () => {
           }
         />
         <Route
-          path="/createParentProfile/setup"
+          path="/createparentprofile/setup"
           element={
             //<ProtectedRoute user={user}>
               <CreateParentProfileSetup />
@@ -96,7 +97,7 @@ const App = () => {
           }
         />
         <Route
-          path="/createKidProfile"
+          path="/createkidprofile"
           element={
             //<ProtectedRoute user={user}>
               <CreateKidProfile />
@@ -104,10 +105,18 @@ const App = () => {
           }
         />
         <Route
-          path="/createKidProfile/setup"
+          path="/createkidprofile/setup"
           element={
             //<ProtectedRoute user={user}>
               <CreateKidProfileSetup />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/parentprofile"
+          element={
+            //<ProtectedRoute user={user}>
+              <ParentProfile />
             //</ProtectedRoute>
           }
         />

@@ -6,7 +6,7 @@ import Profiles from '../../pages/Profiles/Profiles';
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav className={styles.container}>
-      {user ? // boolean is in place for testing. Once user is finished we can replace with "user"
+      {user ?
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/feed">
@@ -20,12 +20,6 @@ const NavBar = ({ user, handleLogout }) => {
               <div>Map</div>
             </Link>
           </li>
-          {/* <li className={styles.navItem}>
-            <Link className={styles.link} to="/chores">
-              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
-              <div>Chores</div>
-            </Link>
-          </li> */}
           <li className={styles.navItem}>
             <Link className={styles.link} to="/profiles">
                {/* Change to this as users should only be able to access one profile
@@ -36,8 +30,8 @@ const NavBar = ({ user, handleLogout }) => {
           </li>
         </ul>
       :
-        <ul>
-        </ul>
+        <>
+        </>
       }
     </nav>
   )
