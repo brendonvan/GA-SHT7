@@ -7,10 +7,9 @@ import { useState } from 'react';
 import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
 const CreateParentProfileSetup = ({profile}) => {
-  // test data
 
   const [firstName, setFirstName] = useState("");
-  // const []
+
 
   return (
     <div className={styles.container}>

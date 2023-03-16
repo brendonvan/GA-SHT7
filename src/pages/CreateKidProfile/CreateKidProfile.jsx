@@ -4,7 +4,7 @@ import styles from './CreateKidProfile.module.css'
 // components
 import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
-const CreateKidProfile = () => {
+const CreateKidProfile = ({newChildForm, handleChange, handleSubmit}) => {
   // test data
   const taskList = {
     assgined: "Billy",

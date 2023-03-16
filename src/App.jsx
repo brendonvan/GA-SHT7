@@ -73,6 +73,10 @@ const App = () => {
     }
   }
 
+  // const handleSetTempChildName = () => {
+  //   s
+  // }
+
   
   return (
     <div className='app'>
@@ -146,7 +150,7 @@ const App = () => {
           path="/profiles"
           element={
             //<ProtectedRoute user={user}>
-              <Profiles profile={profile} handleAddChild={handleAddChild} handleLogout={handleLogout}/>
+              <Profiles profile={profile} CreateKidProfile={CreateKidProfile} handleAddChild={handleAddChild} handleLogout={handleLogout}/>
             //</ProtectedRoute>
           }
         />
