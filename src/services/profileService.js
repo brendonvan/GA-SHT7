@@ -69,10 +69,28 @@ async function showChild(profileId, childId) {
   return await res.json()
 }
 
+
+const updateProfile = async (profileId,profileData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(profileData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export { 
   showProfile, 
   addPhoto, 
   createProfile,
   createChild,
-  showChild
+  showChild,
+  updateProfile
 }

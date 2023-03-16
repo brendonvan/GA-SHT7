@@ -65,7 +65,13 @@ const App = () => {
     }
   }
 
-
+  const handleEditProfile = async (profileData) => {
+    try {
+      await profileService.updateProfile(user.profile, profileData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='app'>
@@ -83,7 +89,7 @@ const App = () => {
           path="/createparentprofile"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfile />
+              <CreateParentProfile profile={profile} handleEditProfile={handleEditProfile}/>
             //</ProtectedRoute>
           }
         />
