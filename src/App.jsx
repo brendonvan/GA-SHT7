@@ -58,8 +58,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      dispatch(setCurrentUser(profile, authService.getUser().profile))
-      console.log('profileID:', authService.getUser().profile)
+      dispatch(setCurrentUser(profile, authService.getUser()))
+      console.log('profileID:', authService.getUser())
       console.log('profile:', profile.user)
       // const profile = await profileService.showProfile(user.userId)
       // setProfile(profile)

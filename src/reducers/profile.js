@@ -1,7 +1,7 @@
 const initialState = {
     user: null,
     showOnboarding: true,
-    showCreateChild: true,
+    showCreateChild: false,
     name: '',
     profileAvatar: '/assets/Circle.png'
     

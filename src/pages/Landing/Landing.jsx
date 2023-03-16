@@ -17,7 +17,7 @@ const Landing = () => {
   function turnPage(evt){
     setOnboardingPage(onboardingPage+1)
     if (onboardingPage >= 3){
-      dispatch(setOnboarding(false))
+      // dispatch(setOnboarding(false))
     }
     console.log('onboarding', onboardingPage)
     console.log('show', profile.showOnboarding)
