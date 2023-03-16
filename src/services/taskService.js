@@ -3,7 +3,7 @@ import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/task`
 
 
-async function create(profileId, childId, taskData) {
+async function create(profileId, childId, tasksData) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/${childId}/create`, {
       method: 'POST',
@@ -11,13 +11,14 @@ async function create(profileId, childId, taskData) {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(taskData)
+      body: JSON.stringify(tasksData)
     })
     return res.json()
   } catch (error) {
     console.log(error)
   }
 }
+
 
 async function updateTask(profileId, childId, taskId) {
   const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {

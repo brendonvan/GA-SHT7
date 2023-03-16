@@ -15,6 +15,7 @@ export default function KidChores() {
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
   const childId = useParams().id
+  const [selectedTasks, setSelectedTasks] = useState([])
 
 
   const [form, setForm] = useState({
@@ -26,13 +27,19 @@ export default function KidChores() {
     console.log(form)
   }
 
-  const clearInput = () => {
-    setForm({ taskName: '' })
-  }
+  // const clearInput = () => {
+  //   setForm({ taskName: '' })
+  // }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e, tasksData) => {
     e.preventDefault()
     handleAddTask(form)
+    try {
+      await taskService.create(profile.user.profile, childId, tasksData)
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
 
@@ -77,13 +84,32 @@ export default function KidChores() {
   function handleSelectTask(task) {
     console.log(task)
     task.selected = !task.selected
+    if (task.selected){
+      setSelectedTasks(selectedTasks => [...selectedTasks, task])
+    } else {
+      setSelectedTasks(selectedTasks => selectedTasks.filter(t => t.id !== task.id))
+    }
   }
 
   async function handleAddTask(form) {
-    const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: false }
-    setTasks(tasks => [...tasks, newTask])
-    setForm({ taskName: '' })
+      const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: true }
+      setTasks(tasks => [...tasks, newTask])
+      setForm({ taskName: '' })
   }
+
+  const handleSendTasksToBackEnd = async () => {
+    const selectedTaskIds = selectedTasks.map(task => task.taskName)
+    const tasksData = { tasks: selectedTaskIds }
+  console.log('tasksData:',tasksData)
+    try {
+      await taskService.create(profile.user.profile, childId, tasksData)
+    } catch (error) {
+      console.log(error)
+    }
+  }  
+
+  
+  
 
   useEffect(() => {
     fetchChild()
@@ -127,7 +153,9 @@ export default function KidChores() {
           </div>
         </div>
       </div>
-      <button className={styles.save} >Save</button>
+      <Link to='/coingoal'>
+        <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
+      </Link>
     </div>
   )
 
