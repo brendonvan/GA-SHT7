@@ -48,7 +48,7 @@ const ParentProfile = () => {
           {/* TODO: Map this for each child in array */}
           { list.length ? (
             <h1 className={styles.childrenList}>{list.map((child) => 
-                <div className={styles.kidItem}>
+                <div className={styles.kidItem} onClick={() => { navigate(`/choreboard/${child._id}`) }}>
                   <img className={styles.kidImg} src={child.avatar} alt={child.avatar} />
                   <p className={styles.kidName}>{child.name}</p>
                 </div>

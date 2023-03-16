@@ -3,9 +3,9 @@ import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/task`
 
 
-async function create(taskData) {
+async function create(profileId, childId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/create`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

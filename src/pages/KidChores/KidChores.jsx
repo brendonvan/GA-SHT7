@@ -1,43 +1,76 @@
 import styles from './KidChores.module.css';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { Routes, Route, useNavigate, Navigate, Link, useParams } from 'react-router-dom'
+
+// redux actions
+import { setProfileName } from '../../actions'
+
+// services
+import * as profileService from '../../services/profileService'
+import * as taskService from '../../services/taskService'
 
 export default function KidChores() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const profile = useSelector(state => state.profileReducer)
+  const childId = useParams().id
 
 const navigate = useNavigate()
 
   const preDefinedTasks = [
     {
-      id: "123123123",
+      id: "123",
       taskName: "Throw Trash",
       selected: true
     },
     {
-      id: "123123123",
+      id: "4321123123",
       taskName: "Clean Room",
       selected: false
     },
     {
-      id: "123123123",
+      id: "1231243523123",
       taskName: "Wash Dishes",
       selected: true
     },
     {
-      id: "123123123",
+      id: "1231231234523",
       taskName: "Fold Clothes",
       selected: false
     },
     {
-      id: "123123123",
+      id: "1223453123123",
       taskName: "Vacuum House",
       selected: false
     },
 
   ]
 
-  function handleSelectTask() {
-    // TODO: update selected task to toggle
+  const [child, setChild] = useState({});
+  const [tasks, setTasks] = useState(preDefinedTasks);
+  const [newTask, setNewTask] = useState('')
+
+  async function fetchChild() {
+    setChild(await profileService.showChild(profile.user.profile, childId))
+    setTasks(await tasks)
   }
+
+  function handleSelectTask(task) {
+    console.log(task)
+    task.selected = !task.selected
+  }
+
+  async function handleAddTask() {
+    console.log(tasks)
+    console.log(await taskService.create(profile.user.profile, childId, {taskName: newTask}))
+
+  }
+
+  useEffect(() => {
+    fetchChild()
+  }, [])
+  
 
   return (
     <div className={styles.container}>
@@ -48,24 +81,32 @@ const navigate = useNavigate()
           <p className={styles.header_p}>Select your Child's Primary Chores</p>
         </div>
         <div className={styles.selectAvatar}>
-          <img className={styles.chosenAvatar} src="/assets/Kid_3.png" alt="Kid_3_Image"></img>
-          <h1 className={styles.profileName}>Billy</h1>
+          <img className={styles.chosenAvatar} src={child.avatar} alt={child.avatar}></img>
+          <h1 className={styles.profileName}>{child.name}</h1>
           <div className={styles.tasklist}>
             <form className={styles.formField}>
-              {preDefinedTasks.map((task) => 
-                <div key={task.id} className={styles.task}>
-                  <div className={styles.checkcircle} onClick={() => { handleSelectTask() }}>
-                    <img className={`${styles.check} ${task.selected ? '' : styles.hide}`} src="/assets/check.svg" alt="selected-task" />
-                  </div>
-                  {task.taskName}
-                </div>
+              {tasks.map((task) => 
+                {
+                  return(
+                    <div key={task.id} className={styles.task} onClick={() => { handleSelectTask(task) }}>
+                      <div className={styles.checkcircle} >
+                        <img className={`${styles.check} ${task.selected ? '' : styles.hide}`} src="/assets/check.svg" alt="selected-task" />
+                      </div>
+                      {task.taskName}
+                    </div>
+                  )
+                }
               )}
             </form>
-              <div className={styles.addTask}><div className={styles.addTaskCircle}>+</div>Create New Chore</div>
+              <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={() => { handleAddTask() }}>+</div>
+                <input type="text"
+                  placeholder='Create New Chore'
+                  onChange={(e) => setNewTask(e.target.value)}  />
+              </div>
           </div>
         </div>
       </div>
-      <button className={styles.save}>Save</button>
+      <button className={styles.save} >Save</button>
     </div>
   )
 
