@@ -1,4 +1,5 @@
 import styles from './ChoreBoard.module.css'
+import { Link } from 'react-router-dom'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
 const ChoreBoard = () => {
@@ -17,7 +18,7 @@ const ChoreBoard = () => {
           <h1 className={styles.profileName}>Billy</h1>
         </div>
         <ProgressBar />
-
+        <Link to = "/chores" >+ Add Chore</Link>
       </div>
     </div>
   )
