@@ -156,17 +156,23 @@ const App = () => {
             //</ProtectedRoute>
           }
         />
-
-
-        {/* TODO: Routes not being used currently*/}
         <Route
-          path="/choreboard"
+          path="/choreboard/:id"
           element={
             //<ProtectedRoute user={user}>
               <ChoreBoard />
             //</ProtectedRoute>
           }
         />  
+        <Route 
+          path="/kidChores/:id"
+          element= {
+            <KidChores />
+          }
+        />
+
+
+        {/* TODO: Routes not being used currently*/}
 
         <Route
           path="/dashboard"
@@ -196,12 +202,6 @@ const App = () => {
           path="/chores"
           element= {
             <Chores />
-          }
-        />
-        <Route 
-          path="/kidChores"
-          element= {
-            <KidChores />
           }
         />
         <Route
