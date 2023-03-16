@@ -1,0 +1,90 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+  overflow-y: scroll;
+}
+
+.header {
+  width: 100vw;
+  height: 10rem;
+  padding-top: 3.5rem;
+  background: var(--header-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.header_h1 {
+  font-family: var(--font-family-josefin);
+  font-weight: 500;
+}
+
+.header_p {
+  font-family: var(--font-family-josefin);
+  margin-top: 1.85rem;
+}
+
+.selectAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 30vh;
+}
+ 
+.label {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.chosenAvatar {
+  width: 8.063rem;
+  height: 8.063rem;
+  background: var(--placeholder-background);
+  border-radius: 8rem;
+  margin: 1.5rem 1.875rem;
+}
+
+.task, .addTask {
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 1rem 5rem;
+  border: 1px solid #848383;
+  border-radius: 10px;
+}
+
+.task {
+  background-color: white;
+}
+
+.addTask {
+  background-color: orange;
+}
+
+.save {
+  background-color: #454EE9;
+  color: var(--text-button);
+  font-family: var(--font-family-ubuntu);
+  border-radius: 30px;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  outline: none;
+  border: none;
+  width: 12.5rem;
+  height: 3.25rem;
+}
+
+input[type="checkbox"] {
+  border-radius: 30px;
+}

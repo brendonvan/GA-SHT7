@@ -1,10 +1,5 @@
 import styles from './CreateParentProfile.module.css'
-
 import { useState } from 'react'
-//import { useDispatch, useSelector } from 'react-redux'
-
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
 const CreateParentProfile = ({profile, handleEditProfile}) => {
   // test data
@@ -46,7 +41,8 @@ const CreateParentProfile = ({profile, handleEditProfile}) => {
           <p className={styles.header_p}>Choose an avatar</p>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
           <div className={styles.availableAvatar}>
             <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_1.png" alt="choice-1-male" onClick={() => handleProfileChange("/assets/Parent_Avatar_1.png")} /></div>
             <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_2.png" alt="choice-2-male" onClick={() => handleProfileChange("/assets/Parent_Avatar_2.png")} /></div>

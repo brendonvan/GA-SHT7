@@ -1,15 +1,11 @@
 import styles from './CreateKidProfileSetup.module.css'
 import { useState } from 'react';
-//import { useDispatch, useSelector } from 'react-redux'
 
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
+const CreateKidProfileSetup = ({ handleChange, handleSubmit, newChildForm, avatarSelection }) => {
 
-const CreateKidProfileSetup = () => {
-  // test data
+  // const [firstName, setFirstName] = useState("");
 
-  const [firstName, setFirstName] = useState("");
-
+  console.log(avatarSelection)
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -19,24 +15,25 @@ const CreateKidProfileSetup = () => {
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src={avatarSelection} alt="Kid_4_Image"></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>
               <input
                 className={styles.input}
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
+                value={newChildForm}
+                onChange={handleChange}
                 placeholder=""
                 type="text"
-                name="firstName"
+                name="name"
                 required
               />
+              <div className={styles.nextBtn} onClick={handleSubmit}>Next</div>
             </form>
           </div>
         </div>
       </div>
-      <div className={styles.nextBtn}>Next</div>
     </div>
   )
 }

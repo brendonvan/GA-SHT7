@@ -1,10 +1,5 @@
 import styles from './CreateParentProfileSetup.module.css'
 import { useState } from 'react';
-//import { useDispatch, useSelector } from 'react-redux'
-// import * as profileService from './services/profileService'
-
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
 const CreateParentProfileSetup = ({profile}) => {
 
@@ -20,7 +15,8 @@ const CreateParentProfileSetup = ({profile}) => {
           <p className={styles.header_p}>What's your name?</p>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>

@@ -1,0 +1,108 @@
+.container {
+  padding: 0 2.25rem 0 2.25rem;
+}
+
+.goalName {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-family: var(--font-family-josefin);
+  font-size: 0.938rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.6rem;
+}
+
+.skill {
+  margin-bottom: 35px;
+  position: relative;
+  overflow-x:hidden;
+}
+  
+.skill:before {
+  width: 100%;
+  height: 10px;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #959595;
+  bottom: 0;
+}
+  
+.skillBar {
+  width: 100%;
+  height: 10px;
+  background:#4DCC59;
+  display: block;
+  position: relative;
+  border-radius: 1rem;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.skillBar2 {
+  width: 100%;
+  height: 10px;
+  background: #c6c6c6;
+  display: block;
+  position: relative;
+  border-radius: 1rem;
+  margin: -1.1rem 0 0.5rem 0;
+  z-index: -1;
+}
+  
+.skillBar span {
+  position: absolute;
+  border-top: 5px solid #4DCC59;
+  top:30px;
+  padding: 0;
+  font-size: 18px;
+  padding: 3px 0;
+  font-weight: 500;
+}
+  
+.skillBar {
+  position: relative;
+}
+
+.skillBar2 {
+  position: relative;
+}
+  
+.skill1 .skillCount1 {
+  right: 0;
+}
+
+.skill2 .skillCount2 {
+  right: 0;
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.coinStatus {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.coinImg {
+  width: 2.438rem;
+  height: 2.438rem;
+  margin-left: -0.25rem;
+}
+
+.left, .right {
+  display: flex;
+}
+
+.count {
+  font-family: var(--font-family-josefin);
+  margin-top: -0.25rem;
+  display: flex;
+  align-items: center;
+}

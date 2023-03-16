@@ -21,10 +21,9 @@ const NavBar = ({ user, handleLogout, profile }) => {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link className={styles.link} to="/profiles">
-               {/* Update different avatar for different profiles */}
-              <img className={styles.navItemImgProfile} src={profile.avatar} alt={profile.avatar} />
-              {/* <img className={styles.navItemImgProfile} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_Female_2" /> */}
+            <Link className={styles.link} to="/parentprofile">
+               {/* TODO: Update different avatar for different profiles */}
+              <img className={styles.navItemImgProfile} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_Female_2" />
               <div>Profile</div>
             </Link>
           </li>

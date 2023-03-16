@@ -1,11 +1,6 @@
 import styles from './ParentProfile.module.css'
-//import { useDispatch, useSelector } from 'react-redux'
-
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
 const ParentProfile = () => {
-
 
   return (
     <div className={styles.container}>
@@ -15,15 +10,15 @@ const ParentProfile = () => {
           <h1 className={styles.header_h1}>Parent Profile</h1>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
-          {/* Update this name for current profile */}
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_4_Image"></img>
           <h1 className={styles.profileName}>Tammy</h1>
         </div>
         <div className={styles.childrenList}>
           <h1 className={styles.listLabel}>Kids</h1>
           <div className={styles.line}></div>
 
-          {/* Map this for each child in array */}
+          {/* TODO: Map this for each child in array */}
           <div className={styles.kidItem}>
             <img className={styles.kidImg} src="/assets/Kid_3.png" alt="Kid_3_picture" />
             <p className={styles.kidName}>Billy</p>

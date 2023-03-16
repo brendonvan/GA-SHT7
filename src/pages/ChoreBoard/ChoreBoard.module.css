@@ -1,0 +1,113 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+}
+
+.back {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 2rem 2rem 0 2rem;
+}
+
+.header {
+  width: 100vw;
+  height: 11rem;
+  background: var(--header-background);
+}
+
+.header_h1 {
+  padding-top: 2rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 500;
+}
+
+.header_p {
+  font-family: var(--font-family-josefin);
+  margin-top: 1.85rem;
+  text-align: center;
+}
+
+.selectAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap
+  
+}
+
+.chosenAvatar {
+  width: 8.063rem;
+  height: 8.063rem;
+  background: var(--placeholder-background);
+  border-radius: 8rem;
+  margin: 1.875rem 1.875rem 1rem 1.875rem;
+}
+
+.profileName {
+  font-size: 1.4rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 400;
+  letter-spacing: -0.063rem;
+  color: var(--text-base);
+}
+
+.childrenList {
+  margin: 3rem 0.3rem 1rem 0.3rem;
+}
+
+
+.listLabel {
+  font-size: 1.4rem;
+  font-family: var(--font-family-josefin);
+  font-weight: 400;
+  letter-spacing: -0.063rem;
+  color: var(--text-base);
+  margin-bottom: 0.1rem;
+}
+
+.line {
+  border-top: 4px solid var(--text-base);
+}
+
+.addChildButton {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+}
+
+.addBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--add-child-btn);
+  text-align: center;
+  line-height: 2.7rem;
+  font-size: 2rem;
+  color: var(--text-button);
+  margin-left: 2rem;
+  margin-right: 2.25rem;
+}
+
+.addText, .kidName {
+  font-family: var(--font-family-josefin);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
+}
+
+.kidItem {
+  display: flex;
+  align-items: center;
+}
+
+.kidImg {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 6rem;
+  margin: 1rem 1.25rem 1rem 1rem;
+}

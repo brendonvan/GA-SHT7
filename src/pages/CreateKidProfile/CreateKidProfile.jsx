@@ -1,23 +1,11 @@
 import styles from './CreateKidProfile.module.css'
-//import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-// components
-import AssignedChores from '../../components/AssignedChores/AssignedChores'
+const CreateKidProfile = ({newChildForm, handleChange, handleSubmit, handleAvatarSelect, handleTempSelectAvatar, avatarSelection }) => {
 
-const CreateKidProfile = ({newChildForm, handleChange, handleSubmit}) => {
-  // test data
-  const taskList = {
-    assgined: "Billy",
-    amountOfTask: 2,
-    coinsEarned: 10,
-    goalCost: 100
-  }
-  const taskList2 = {
-    assgined: "Jimmy",
-    amountOfTask: 60,
-    coinsEarned: 2,
-    goalCost: 10
-  }
+  // const handleAddAvatar() {
+    
+  // }
 
   return (
     <div className={styles.container}>
@@ -28,16 +16,19 @@ const CreateKidProfile = ({newChildForm, handleChange, handleSubmit}) => {
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>
         <div className={styles.selectAvatar}>
-          <div className={styles.chosenAvatar}></div>
+          {/* TODO: Update this name for current profile */}
+          <img className={styles.chosenAvatar} src="/assets/Kid_4.png" alt="Kid_4_Image"></img>
           <div className={styles.availableAvatar}>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_1.png" alt="choice-1-girl" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_2.png" alt="choice-2-boy" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_3.png" alt="choice-1-girl" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_4.png" alt="choice-2-boy" /></div>
+            <div onClick={handleTempSelectAvatar} className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_1.png" alt="choice-1-girl" /></div>
+            <div onClick={handleTempSelectAvatar} className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_2.png" alt="choice-2-boy" /></div>
+            <div onClick={handleTempSelectAvatar} className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_3.png" alt="choice-1-girl" /></div>
+            <div onClick={handleTempSelectAvatar} className={styles.gridCell}><img className={styles.avatar} src="/assets/Kid_4.png" alt="choice-2-boy" /></div>
           </div>
         </div>
       </div>
+      <Link to="/createkidprofile/setup" handleSubmit={handleSubmit} newChildForm={newChildForm} avatarSelection={avatarSelection} handleChange={handleChange} >
       <div className={styles.nextBtn}>Next</div>
+      </Link>
     </div>
   )
 }
