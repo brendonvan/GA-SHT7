@@ -24,7 +24,7 @@ const CreateKidProfileSetup = () => {
       // console.log(firstName)
       // console.log(profile)
       // console.log(child)
-      await profileService.createChild(profile.user, child)
+      console.log(await profileService.createChild(profile.user.profile, child))
       navigate('/parentprofile')
     } catch (error) {
       console.log(error)
