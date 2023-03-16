@@ -80,19 +80,6 @@
   flex-flow: row;
 }
 
-.addBtn {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 3rem;
-  background: var(--add-child-btn);
-  text-align: center;
-  line-height: 2.7rem;
-  font-size: 2rem;
-  color: var(--text-button);
-  margin-left: 2rem;
-  margin-right: 2.25rem;
-}
-
 .addText, .kidName {
   font-family: var(--font-family-josefin);
   font-size: 1.25rem;
@@ -110,4 +97,44 @@
   height: 5rem;
   border-radius: 6rem;
   margin: 1rem 1.25rem 1rem 1rem;
+}
+
+.pencil {
+  width: 15px;
+  height: 15px;
+}
+
+.question * {
+  display: flex;
+  justify-content: space-around;
+}
+
+.taskList {
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #848383;
+  font-family: "Josefin Sans";
+}
+
+.chores {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-family: "Josefin Sans";
+}
+
+.addBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--add-child-btn);
+  text-align: center;
+  line-height: 2.9rem;
+  margin: 0.5rem;
+  font-size: 2rem;
+  color: var(--text-button);
 }
