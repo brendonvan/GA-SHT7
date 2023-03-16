@@ -46,7 +46,7 @@ export default function KidChores() {
     {
       id: "123",
       taskName: "Throw Trash",
-      selected: true
+      selected: false
     },
     {
       id: "4321123123",
@@ -54,19 +54,19 @@ export default function KidChores() {
       selected: false
     },
     {
-      id: "1231243523123",
-      taskName: "Wash Dishes",
-      selected: true
-    },
-    {
       id: "1231231234523",
       taskName: "Fold Clothes",
       selected: false
     },
     {
+      id: "1231243523123",
+      taskName: "Clean up dishes",
+      selected: true
+    },
+    {
       id: "1223453123123",
-      taskName: "Vacuum House",
-      selected: false
+      taskName: "Vacuum the living room",
+      selected: true
     },
 
   ]
