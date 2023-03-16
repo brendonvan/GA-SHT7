@@ -10,13 +10,13 @@ const NavBar = ({ user, handleLogout }) => {
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/feed">
-              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <img className={styles.navItemImgFeed} src="/assets/Feed.svg" alt="navigate-feed" />
               <div>Feed</div>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/map">
-              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <img className={styles.navItemImgMap} src="/assets/Map.svg" alt="navigate-map" />
               <div>Map</div>
             </Link>
           </li>
@@ -24,7 +24,7 @@ const NavBar = ({ user, handleLogout }) => {
             <Link className={styles.link} to="/profiles">
                {/* Change to this as users should only be able to access one profile
                <Link className={styles.link} to={`/profiles/${profile._id}`}> */}
-              <img className={styles.navItemImg} src="https://source.unsplash.com/300x300" alt="test-img" />
+              <img className={styles.navItemImgProfile} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_Female_2" />
               <div>Profile</div>
             </Link>
           </li>
