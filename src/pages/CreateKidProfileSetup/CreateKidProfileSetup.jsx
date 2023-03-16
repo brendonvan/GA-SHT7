@@ -4,23 +4,36 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // redux actions
-import { setProfileName, setShowCreateChild } from '../../actions';
+import { setChildName, setShowCreateChild } from '../../actions'
+
+import * as profileService from '../../services/profileService'
 
 
-const CreateKidProfileSetup = ({ handleChange, handleSubmit, newChildForm, avatarSelection }) => {
+const CreateKidProfileSetup = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
+  const child = useSelector(state => state.addChildProfileReducer)
 
-  function handleSubmit() {
-    handleFinishChildCreate()
-    console.log(profile)
-    navigate('/parentprofile')
+  const [firstName, setFirstName] = useState("");
+
+  async function handleNext() {
+    try {
+      dispatch(setChildName(child, firstName))
+      handleFinishChildCreate()
+      // console.log(firstName)
+      // console.log(profile)
+      // console.log(child)
+      await profileService.createChild(profile.user, child)
+      navigate('/parentprofile')
+    } catch (error) {
+      console.log(error)
+    }
   }
-  
+
   function handleFinishChildCreate() {
     dispatch(setShowCreateChild(profile, false))
-    console.log('finish onboarding', profile.showOnboarding)
+    console.log('finish onboarding', profile.showCreateChild)
   }
 
   return (
@@ -33,20 +46,20 @@ const CreateKidProfileSetup = ({ handleChange, handleSubmit, newChildForm, avata
         </div>
         <div className={styles.selectAvatar}>
           {/* TODO: Update this name for current profile */}
-          <img className={styles.chosenAvatar} src={avatarSelection} alt="Kid_4_Image"></img>
+          <img className={styles.chosenAvatar} src={ child.avatar } alt={ child.avatar }></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>
               <input
                 className={styles.input}
-                value={newChildForm}
-                onChange={handleChange}
+                value={firstName}
+                onChange={e => setFirstName(e.target.value)}
                 placeholder=""
                 type="text"
-                name="name"
+                name="firstName"
                 required
               />
-              <div className={styles.nextBtn} onClick={handleSubmit}>Next</div>
+              <div className={styles.nextBtn} onClick={handleNext}>Next</div>
             </form>
           </div>
         </div>

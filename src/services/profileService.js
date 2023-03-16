@@ -45,8 +45,6 @@ async function createProfile(profileData) {
 
 async function createChild(profileId, childData) {
   try {
-    console.log('works here')
-    console.log('profileId:', profileId)
     const res = await fetch(`${BASE_URL}/${profileId}/child`, {
       method: "POST",
       headers: { 
@@ -55,7 +53,6 @@ async function createChild(profileId, childData) {
       },
       body: JSON.stringify(childData)
     })
-    console.log('works here 2')
     return res.json()
   } catch (error) {
     console.log(error)

@@ -38,6 +38,22 @@ export const setProfileName = (profile, name) => {
     }
 }
 
+export const setChildAvatar = (child, avatar) => {
+    let currentChild = { ...child, avatar }
+    return {
+        type: 'SET_CHILD_AVATAR',
+        payload: currentChild
+    }
+}
+
+export const setChildName = (child, name) => {
+    let currentChild = { ...child, name }
+    return {
+        type: 'SET_CHILD_NAME',
+        payload: currentChild
+    }
+}
+
 export const signOut = () => {
     return {
         type: 'SIGN_OUT'
