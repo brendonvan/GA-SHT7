@@ -44,6 +44,9 @@ const App = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
+      console.log('profileID:', user.profile._id)
+      console.log('profile:', user.profile)
+      console.log('profile:', typeof user.profile)
     const profile = await profileService.showProfile(user.profile)
     setProfile(profile)
     }
@@ -51,9 +54,9 @@ const App = () => {
   }, [user])
 
 
-  const handleAddChild = async (profileId, childData) => {
+  const handleAddChild = async (childData) => {
     try {
-      await profileService.createChild(childData, profileId)
+      await profileService.createChild(user.profile, childData)
     } catch (error) {
       console.log(error)
     }
