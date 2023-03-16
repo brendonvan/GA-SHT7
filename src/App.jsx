@@ -11,6 +11,7 @@ import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreatePar
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
 import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
 import KidChores from './pages/KidChores/KidChores'
+import CoinGoal from './pages/CoinGoal/CoinGoal'
 import Feed from './pages/Feed/Feed'
 import Map from './pages/Map/Map'
 import ParentProfile from './pages/ParentProfile/ParentProfile'
@@ -126,6 +127,14 @@ const App = () => {
           element={
             //<ProtectedRoute user={user}>
               <CreateKidProfileSetup />
+            //</ProtectedRoute>
+          }
+        />
+        <Route
+          path="/coingoal"
+          element={
+            //<ProtectedRoute user={user}>
+              <CoinGoal />
             //</ProtectedRoute>
           }
         />
