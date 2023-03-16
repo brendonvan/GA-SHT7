@@ -72,8 +72,19 @@ const App = () => {
     }
   }
 
+  const handleEditProfile = async (profileData) => {
+    try {
+      await profileService.updateProfile(user.profile, profileData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
+  // const handleSetTempChildName = () => {
+  //   s
+  // }
 
+  
   return (
     <div className='app'>
       <Routes>
@@ -90,7 +101,7 @@ const App = () => {
           path="/createparentprofile"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfile />
+              <CreateParentProfile profile={profile} handleEditProfile={handleEditProfile}/>
             //</ProtectedRoute>
           }
         />
@@ -98,7 +109,7 @@ const App = () => {
           path="/createparentprofile/setup"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfileSetup />
+              <CreateParentProfileSetup profile={profile} />
             //</ProtectedRoute>
           }
         />
@@ -174,7 +185,7 @@ const App = () => {
           path="/profiles"
           element={
             //<ProtectedRoute user={user}>
-              <Profiles profile={profile} handleAddChild={handleAddChild}/>
+              <Profiles profile={profile} CreateKidProfile={CreateKidProfile} handleAddChild={handleAddChild} handleLogout={handleLogout}/>
             //</ProtectedRoute>
           }
         />
@@ -199,9 +210,7 @@ const App = () => {
           }
         />
       </Routes>
-
-
-      <NavBar user={user} handleLogout={handleLogout} />
+          <NavBar user={user} handleLogout={handleLogout} profile={profile}/>
     </div>
   )
 }

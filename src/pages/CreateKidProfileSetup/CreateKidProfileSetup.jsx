@@ -1,10 +1,11 @@
 import styles from './CreateKidProfileSetup.module.css'
 import { useState } from 'react';
 
-const CreateKidProfileSetup = () => {
+const CreateKidProfileSetup = ({ handleChange, handleSubmit, newChildForm, avatarSelection }) => {
 
-  const [firstName, setFirstName] = useState("");
+  // const [firstName, setFirstName] = useState("");
 
+  console.log(avatarSelection)
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -15,24 +16,24 @@ const CreateKidProfileSetup = () => {
         </div>
         <div className={styles.selectAvatar}>
           {/* TODO: Update this name for current profile */}
-          <img className={styles.chosenAvatar} src="/assets/Kid_4.png" alt="Kid_4_Image"></img>
+          <img className={styles.chosenAvatar} src={avatarSelection} alt="Kid_4_Image"></img>
           <div>
             <form className={styles.formField}>
               <label className={styles.label}>First Name</label>
               <input
                 className={styles.input}
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
+                value={newChildForm}
+                onChange={handleChange}
                 placeholder=""
                 type="text"
-                name="firstName"
+                name="name"
                 required
               />
+              <div className={styles.nextBtn} onClick={handleSubmit}>Next</div>
             </form>
           </div>
         </div>
       </div>
-      <div className={styles.nextBtn}>Next</div>
     </div>
   )
 }

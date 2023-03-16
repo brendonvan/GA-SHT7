@@ -1,9 +1,10 @@
 import styles from './CreateParentProfileSetup.module.css'
 import { useState } from 'react';
 
-const CreateParentProfileSetup = () => {
+const CreateParentProfileSetup = ({profile}) => {
 
   const [firstName, setFirstName] = useState("");
+
 
   return (
     <div className={styles.container}>

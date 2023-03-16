@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Profiles from '../../pages/Profiles/Profiles';
 
 
-const NavBar = ({ user, handleLogout }) => {
+const NavBar = ({ user, handleLogout, profile }) => {
   return (
     <nav className={styles.container}>
       {user ?

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Profiles.module.css'
 import * as profileService from '../../services/profileService'
 
-const Profiles = ({ profile, handleAddChild }) => {
+const Profiles = ({ profile, handleAddChild, handleLogout, CreateKidProfile  }) => {
   // const [profiles, setProfiles] = useState([])
 
   // useEffect(() => {
@@ -35,6 +35,28 @@ const Profiles = ({ profile, handleAddChild }) => {
     console.log('Submit:', form)
   }
 
+  const handleAvatarSelect = (e) => {
+    e.preventDefault()
+    setForm({
+      name: ' ',
+      avatar: avatarSelection,
+      score: '',
+      goal: '',
+    }
+    )
+    // handleAddChild(form)
+  }
+
+
+  let avatarSelection = null
+
+  const handleTempSelectAvatar = (e) => {
+    const av = e.target.src
+
+    avatarSelection = av
+    console.log('Selected Avatar:', avatarSelection)
+  }
+
   return (
     <>
       <h1>Hello. This is a list of all the profiles.</h1>
@@ -51,7 +73,7 @@ const Profiles = ({ profile, handleAddChild }) => {
         :
         <p>No profiles yet</p>
       }
-
+      <CreateKidProfile newChildForm={form} handleChange={handleChange} handleSubmit={handleSubmit} handleAvatarSelect={handleAvatarSelect} handleTempSelectAvatar={handleTempSelectAvatar} avatarSelection={avatarSelection}/>
       <h1>{profile.name}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name-input'>Name</label>
@@ -91,6 +113,8 @@ const Profiles = ({ profile, handleAddChild }) => {
 
         {/* <input id="submit" type="submit" value="Add Child"/> */}
       </form>
+
+      <button onClick={handleLogout}>Logout</button>
     </>
   )
 }
