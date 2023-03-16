@@ -43,7 +43,7 @@ const ChoreBoard = () => {
           <img className={styles.chosenAvatar} src={child.avatar} alt={child.avatar}></img>
           <h1 className={styles.profileName}>{child.name}</h1>
         </div>
-        <ProgressBar score={child.score} price={child.price} goal={child.goal}/>
+        <ProgressBar score={ 20} price={700} goal={"Nerf Gun"}/>
         <div className={styles.question}>
           <p>Did {child.name} complete their tasks today? <Link to ={`/kidChores/${childId}`}><img className={styles.pencil} src="/assets/Pencil.svg"></img></Link></p>
         </div>
