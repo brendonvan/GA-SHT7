@@ -112,7 +112,12 @@
 .taskList {
   margin-top: 2rem;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   border: 1px solid #848383;
   font-family: "Josefin Sans";
 }

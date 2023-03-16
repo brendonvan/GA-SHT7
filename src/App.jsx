@@ -24,7 +24,6 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Onboarding from './pages/Onboarding/Onboarding'
-import Chores from './pages/Chores/Chores'
 import TaskList from './pages/TaskList/TaskList'
 
 // components
@@ -196,12 +195,6 @@ const App = () => {
             //<ProtectedRoute user={user}>
               <Profiles profile={profile} handleAddChild={handleAddChild}/>
             //</ProtectedRoute>
-          }
-        />
-        <Route 
-          path="/chores"
-          element= {
-            <Chores />
           }
         />
         <Route

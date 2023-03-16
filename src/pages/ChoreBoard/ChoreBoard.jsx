@@ -36,7 +36,7 @@ const ChoreBoard = () => {
       <div className={styles.wrapper}>
         <div className={styles.header}>
         <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />          {/* TODO: update the name to be for current child */}
-          <h1 className={styles.header_h1}>{name}'s Chore Board</h1>
+          <h1 className={styles.header_h1}>{child.name}'s Chore Board</h1>
 
         </div>
         <div className={styles.selectAvatar}>
