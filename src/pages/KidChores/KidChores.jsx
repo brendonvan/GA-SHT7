@@ -15,6 +15,32 @@ export default function KidChores() {
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
   const childId = useParams().id
+  const [selectedTasks, setSelectedTasks] = useState([])
+
+
+  const [form, setForm] = useState({
+    taskName: '',
+  })
+
+  const handleChange = ({ target }) => {
+    setForm({ ...form, taskName: target.value })
+    console.log(form)
+  }
+
+  // const clearInput = () => {
+  //   setForm({ taskName: '' })
+  // }
+
+  const handleSubmit = async (e, tasksData) => {
+    e.preventDefault()
+    handleAddTask(form)
+    try {
+      await taskService.create(profile.user.profile, childId, tasksData)
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
 
   const preDefinedTasks = [
     {
@@ -47,7 +73,6 @@ export default function KidChores() {
 
   const [child, setChild] = useState({});
   const [tasks, setTasks] = useState(preDefinedTasks);
-  const [newTask, setNewTask] = useState('')
 
   async function fetchChild() {
     setChild(await profileService.showChild(profile.user.profile, childId))
@@ -57,13 +82,32 @@ export default function KidChores() {
   function handleSelectTask(task) {
     console.log(task)
     task.selected = !task.selected
+    if (task.selected){
+      setSelectedTasks(selectedTasks => [...selectedTasks, task])
+    } else {
+      setSelectedTasks(selectedTasks => selectedTasks.filter(t => t.id !== task.id))
+    }
   }
 
-  async function handleAddTask() {
-    console.log(tasks)
-    console.log(await taskService.create(profile.user.profile, childId, {taskName: newTask}))
-
+  async function handleAddTask(form) {
+      const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: true }
+      setTasks(tasks => [...tasks, newTask])
+      setForm({ taskName: '' })
   }
+
+  const handleSendTasksToBackEnd = async () => {
+    const selectedTaskIds = selectedTasks.map(task => task.taskName)
+    const tasksData = { tasks: selectedTaskIds }
+  console.log('tasksData:',tasksData)
+    try {
+      await taskService.create(profile.user.profile, childId, tasksData)
+    } catch (error) {
+      console.log(error)
+    }
+  }  
+
+  
+  
 
   useEffect(() => {
     fetchChild()
@@ -96,15 +140,20 @@ export default function KidChores() {
                 }
               )}
             </form>
-              <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={() => { handleAddTask() }}>+</div>
+              <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={handleSubmit}>+</div>
                 <input type="text"
+                name='taskName'
                   placeholder='Create New Chore'
-                  onChange={(e) => setNewTask(e.target.value)}  />
+                  value={form.taskName}
+                  onChange={handleChange}
+                  autoComplete='off'  />
               </div>
           </div>
         </div>
       </div>
-      <button className={styles.save} >Save</button>
+      <Link to='/coingoal'>
+        <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
+      </Link>
     </div>
   )
 
