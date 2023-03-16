@@ -91,7 +91,7 @@ const App = () => {
           path="/createparentprofile/setup"
           element={
             //<ProtectedRoute user={user}>
-              <CreateParentProfileSetup />
+              <CreateParentProfileSetup profile={profile} />
             //</ProtectedRoute>
           }
         />

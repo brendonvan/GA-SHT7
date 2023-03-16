@@ -1,14 +1,16 @@
 import styles from './CreateParentProfileSetup.module.css'
 import { useState } from 'react';
 //import { useDispatch, useSelector } from 'react-redux'
+// import * as profileService from './services/profileService'
 
 // components
 import AssignedChores from '../../components/AssignedChores/AssignedChores'
 
-const CreateParentProfileSetup = () => {
+const CreateParentProfileSetup = ({profile}) => {
   // test data
 
   const [firstName, setFirstName] = useState("");
+  // const []
 
   return (
     <div className={styles.container}>
