@@ -1,10 +1,10 @@
 .container {
   width: 100vw;
-  height: 9rem;
+  height: 5.188rem;
   display: flex;
   position: fixed;
   bottom: 0;
-  display: none;
+  /* display: none; */
 }
 
 .navList {
@@ -15,8 +15,9 @@
   list-style-type: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: row;
+  background: #FDF395;
 }
 
 .navItem {
@@ -29,15 +30,25 @@
   text-decoration: none;
 }
 
-.navItemImg {
-  width: 4rem;
-  height: 4rem;
+.navItemImgFeed {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.navItemImgMap {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.navItemImgProfile {
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 4rem;
-  margin-bottom: 0.8rem;
+  border: 1px solid var(--text-base);
 }
 
 .link {
   text-decoration: none;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
 }
