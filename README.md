@@ -6,10 +6,10 @@ The app was designed to assist parents in teaching their children the value of m
 
 
 ## :framed_picture: **Screenshots of Project**
-<!-- <img src='./public/assets/screenShot4.png' > -->
-<img height='450px' src='./public/assets/screenShot1.png' >
-<img height='450px' src='./public/assets/screenShot2.png' >
-<img height='450px' src='./public/assets/screenShot3.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot4.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot1.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot2.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot3.png' >
 <br />
 <br />
 
