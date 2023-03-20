@@ -20,7 +20,7 @@ const LoginForm = props => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      navigate('/onboarding')
+      navigate('/parentprofile')
     } catch (err) {
       props.updateMessage(err.message)
     }
