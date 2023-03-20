@@ -22,7 +22,7 @@ const LoginPage = props => {
             handleSignupOrLogin={props.handleSignupOrLogin}
             updateMessage={updateMessage}
           />
-          <Link className={styles.signUp} to = "/signup" >Sign Up</Link>
+          <Link className={styles.signUp} to = "/" >Sign Up</Link>
         </div>
     </main>
   )

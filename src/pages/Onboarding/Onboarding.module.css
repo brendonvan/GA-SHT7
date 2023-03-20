@@ -61,6 +61,7 @@ h1 {
   font-size: 1.5em;
   font-weight: 510;
   font-family: "SF Pro";
+  cursor: pointer;
 }
 
 img {

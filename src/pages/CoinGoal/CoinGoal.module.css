@@ -133,6 +133,7 @@
   border: none;
   background-color: #454EE9;
   color: white;
+  cursor: pointer;
 }
 
 .coinInput {

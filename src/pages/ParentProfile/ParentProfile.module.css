@@ -10,6 +10,7 @@
   width: 1.5rem;
   height: 1.5rem;
   margin: 2rem 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .header {
@@ -34,8 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column wrap
-  
+  flex-flow: column wrap;
 }
 
 .chosenAvatar {
@@ -58,6 +58,7 @@
   height: 35vh;
   overflow-y: scroll;
   margin: 0rem 0.3rem 1rem 0.3rem;
+  cursor: pointer;
 }
 
 .label {
@@ -87,6 +88,7 @@
   display: flex;
   align-items: center;
   flex-flow: row;
+  cursor: pointer;
 }
 
 .addBtn {
