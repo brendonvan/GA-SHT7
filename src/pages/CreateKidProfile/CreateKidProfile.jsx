@@ -12,8 +12,45 @@ const CreateKidProfile = () => {
   const profile = useSelector(state => state.profileReducer)
   const child = useSelector(state => state.addChildProfileReducer)
 
+  const [avatar1, setAvatar1] = useState(`${styles.avatar}`);
+  const [avatar2, setAvatar2] = useState(`${styles.avatar}`);
+  const [avatar3, setAvatar3] = useState(`${styles.avatar}`);
+  const [avatar4, setAvatar4] = useState(`${styles.avatar}`);
+
   const handleProfileChange = (child, avatar) => {
     dispatch(setChildAvatar(child, avatar))
+    switch (avatar) {
+      case "/assets/Kid_1.png":
+        setAvatar1(`${styles.avatar} ${styles.active}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Kid_2.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar} ${styles.active}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Kid_3.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar} ${styles.active}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Kid_4.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar} ${styles.active}`)
+        break;
+      default:
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+    }
   }
 
   useEffect(() => {
@@ -32,10 +69,10 @@ const CreateKidProfile = () => {
           {/* TODO: Update this name for current profile */}
           <img className={styles.chosenAvatar} src={ child.avatar } alt={ child.avatar }></img>
           <div className={styles.availableAvatar}>
-            <div className={styles.gridCell}><img className={styles.avatar} onClick={ () => { handleProfileChange(child, "/assets/Kid_1.png") } } src="/assets/Kid_1.png" alt="choice-1-girl" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} onClick={ () => { handleProfileChange(child, "/assets/Kid_2.png") } } src="/assets/Kid_2.png" alt="choice-2-boy" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} onClick={ () => { handleProfileChange(child, "/assets/Kid_3.png") } } src="/assets/Kid_3.png" alt="choice-1-girl" /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} onClick={ () => { handleProfileChange(child, "/assets/Kid_4.png") } } src="/assets/Kid_4.png" alt="choice-2-boy" /></div>
+            <div className={styles.gridCell}><img className={avatar1} onClick={ () => { handleProfileChange(child, "/assets/Kid_1.png") } } src="/assets/Kid_1.png" alt="choice-1-girl" /></div>
+            <div className={styles.gridCell}><img className={avatar2} onClick={ () => { handleProfileChange(child, "/assets/Kid_2.png") } } src="/assets/Kid_2.png" alt="choice-2-boy" /></div>
+            <div className={styles.gridCell}><img className={avatar3} onClick={ () => { handleProfileChange(child, "/assets/Kid_3.png") } } src="/assets/Kid_3.png" alt="choice-1-girl" /></div>
+            <div className={styles.gridCell}><img className={avatar4} onClick={ () => { handleProfileChange(child, "/assets/Kid_4.png") } } src="/assets/Kid_4.png" alt="choice-2-boy" /></div>
           </div>
         </div>
       </div>

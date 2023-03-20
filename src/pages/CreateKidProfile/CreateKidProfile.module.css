@@ -84,7 +84,7 @@
   cursor: pointer;
 }
 
-.avatar:hover {
+.avatar:hover, .active {
   border: 5px solid #454EE9;
   border-radius: 8rem;
 }

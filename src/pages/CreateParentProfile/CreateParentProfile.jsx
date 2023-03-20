@@ -11,8 +11,48 @@ const CreateParentProfile = () => {
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer);
 
+
+  const [avatar1, setAvatar1] = useState(`${styles.avatar}`);
+  const [avatar2, setAvatar2] = useState(`${styles.avatar}`);
+  const [avatar3, setAvatar3] = useState(`${styles.avatar}`);
+  const [avatar4, setAvatar4] = useState(`${styles.avatar}`);
+
   const handleProfileChange = (profile, avatar) => {
+    
     dispatch(setProfileAvatar(profile, avatar))
+    switch (avatar) {
+      case "/assets/Parent_Avatar_1.png":
+        setAvatar1(`${styles.avatar} ${styles.active}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Parent_Avatar_2.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar} ${styles.active}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Parent_Avatar_3.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar} ${styles.active}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+      case "/assets/Parent_Avatar_4.png":
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar} ${styles.active}`)
+        break;
+      default:
+        setAvatar1(`${styles.avatar}`)
+        setAvatar2(`${styles.avatar}`)
+        setAvatar3(`${styles.avatar}`)
+        setAvatar4(`${styles.avatar}`)
+        break;
+    }
+
     console.log('user', profile.user)
     console.log('avatar:', profile.profileAvatar)
   }
@@ -28,10 +68,10 @@ const CreateParentProfile = () => {
         <div className={styles.selectAvatar}>
           <img className={styles.chosenAvatar} src={profile.profileAvatar} alt={profile.profileAvatar}></img>
           <div className={styles.availableAvatar}>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_1.png" alt="choice-1-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_1.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_2.png" alt="choice-2-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_2.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_3.png" alt="choice-1-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_3.png")} /></div>
-            <div className={styles.gridCell}><img className={styles.avatar} src="/assets/Parent_Avatar_4.png" alt="choice-2-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_4.png")} /></div>
+            <div className={styles.gridCell}><img className={avatar1} src="/assets/Parent_Avatar_1.png" alt="choice-1-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_1.png")} /></div>
+            <div className={styles.gridCell}><img className={avatar2} src="/assets/Parent_Avatar_2.png" alt="choice-2-male" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_2.png")} /></div>
+            <div className={styles.gridCell}><img className={avatar3} src="/assets/Parent_Avatar_3.png" alt="choice-1-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_3.png")} /></div>
+            <div className={styles.gridCell}><img className={avatar4} src="/assets/Parent_Avatar_4.png" alt="choice-2-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_4.png")} /></div>
           </div>
         </div>
       </div>
@@ -39,5 +79,4 @@ const CreateParentProfile = () => {
     </div>
   )
 }
-
 export default CreateParentProfile
