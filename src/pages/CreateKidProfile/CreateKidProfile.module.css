@@ -10,6 +10,7 @@
   width: 1.5rem;
   height: 1.5rem;
   margin: 2rem 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .header {
@@ -54,6 +55,7 @@
   grid-template-rows: 1fr 1fr;
   column-gap: 0rem;
   row-gap: 4rem;
+  cursor: pointer;
 }
 
 .gridCell {
@@ -80,6 +82,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .avatar:hover {

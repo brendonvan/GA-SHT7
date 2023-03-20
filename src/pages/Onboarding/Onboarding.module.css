@@ -61,11 +61,10 @@ h1 {
 }
 
 .buttonTxt {
-  font-family: var(--font-family-ubuntu);
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: white;
+  font-size: 1.5em;
+  font-weight: 510;
+  font-family: "SF Pro";
+  cursor: pointer;
 }
 
 img {

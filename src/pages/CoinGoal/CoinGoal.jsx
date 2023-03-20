@@ -35,7 +35,6 @@ export default function CoinGoal() {
         </div>
         <Link to ="/parentprofile">
           <button className={styles.save}>Create Profile</button>
-        
         </Link>
     </div>
   </div>

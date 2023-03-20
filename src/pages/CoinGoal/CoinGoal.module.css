@@ -11,6 +11,7 @@
   width: 1.5rem;
   height: 1.5rem;
   margin: 2rem 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .header {
@@ -133,6 +134,7 @@
   border: none;
   background-color: #454EE9;
   color: white;
+  cursor: pointer;
 }
 
 .coinInput {

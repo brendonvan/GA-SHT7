@@ -10,6 +10,7 @@
   width: 1.5rem;
   height: 1.5rem;
   margin: 2rem 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .header {
@@ -35,8 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column wrap
-  
+  flex-flow: column wrap;
 }
 
 .chosenAvatar {
@@ -69,6 +69,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .label {
