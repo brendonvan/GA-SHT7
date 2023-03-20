@@ -53,6 +53,9 @@ h1 {
 }
 
 .profileCreate {
+  font-family: var(--font-family-ubuntu);
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
   color: white;
 }

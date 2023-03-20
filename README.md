@@ -1,69 +1,45 @@
-# Decoupled MERN Stack with JWT Auth Template - Front End
+# <img src='./public/assets/Chore_coin.svg' > Chores for Coins
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication.
+## Winner of General Assembly's 2023 Spring Hack-A-Thon
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end), you'll have all you need to build a full stack MERN app!
+The app was designed to assist parents in teaching their children the value of money and patience. Our app rewards kids with coins for completing tasks or chores while working toward a goal or price agreed upon by their parents! Track your child’s progress with a gameboard, and watch them get closer to their goal as they complete more chores. 
 
-Use this to go build things! 🚀
 
-## To Use This Template
+## :framed_picture: **Screenshots of Project**
+<img height='450px' width="215px" src='./public/assets/screenShot4.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot1.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot2.png' >
+<img height='450px' width="215px" src='./public/assets/screenShot3.png' >
+<br />
+<br />
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+# Team Members:
+## Developers
+- Brendon Von <a href='https://github.com/brendonvan'>GitHub</a> | <a href='https://brendonvan.dev/'>Portfolio</a> | <a href='https://www.linkedin.com/in/brendon-van/'>LinkedIn</a>  
+- Harrison Weisberg <a href='https://github.com/hpweisberg'>GitHub</a> | <a href='https://harrisonweisberg.com/'>Portfolio</a> | <a href='https://www.linkedin.com/in/harrisonweisberg/'>LinkedIn</a>  
+- Ian Chan <a href='https://github.com/ianchan3'>GitHub</a> | <a href='https://www.ianchanportfolio.com/'>Portfolio</a> | <a href='https://www.linkedin.com/in/ianchan-/'>LinkedIn</a>  
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+## UX/UI Designers
+- Sachi Shirali <a href='https://www.sachishirali.com/'>Portfolio</a> | <a href='https://www.linkedin.com/in/sachi-shirali/'>LinkedIn</a>  
+- Teresa Witzke <a href='https://www.teresakaelyn.com/'>Portfolio</a> | <a href='https://www.linkedin.com/in/teresa-witzke/'>LinkedIn</a>  
+- Yasmin Sikavi <a href='https://www.linkedin.com/in/yasmin-sikavi/'>LinkedIn</a>  
 
-With the project open in VS Code, open a terminal and run:
+## :pager: **Technologies Used**
 
-```bash
-rm -rf .git
-```
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,mongodb,express,react,nodejs,git,github,vscode,redux)](https://skillicons.dev)
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## :link: **Links**
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+- <a href='https://docs.google.com/presentation/d/10Anec0pa49OKI8k84iQb2XyztkQjf_X3dDNwyaI-VOM/edit?usp=sharing'>Presentation Deck</a>
 
-Re-initialize a git repository:
+## 🧊 Ice Box
 
-```bash
-git init
-```
+- [ ] Create Kid Portal to view chores
+- [ ] Earn badges as you complete benchmark goals
+- [ ] Create calendar and notfication system
+- [ ] Have map update to refelect user progress
 
-Create a repo for this project on GitHub and add that remote to your project with:
+## 🛠️ Known Bugs
 
-```bash
-git remote add origin your-repo-URL-here
-```
-
-Run `npm i` to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-REACT_APP_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
+- Adding tasks does not save to child
+- Account login is not propperly fetching complete profile
