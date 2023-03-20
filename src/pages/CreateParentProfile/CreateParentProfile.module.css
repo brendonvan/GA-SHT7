@@ -54,7 +54,6 @@
   grid-template-rows: 1fr 1fr;
   column-gap: 0rem;
   row-gap: 4rem;
-  cursor: pointer;
 }
 
 .gridCell {
@@ -66,6 +65,7 @@
 .avatar {
   width: 6.75rem;
   height: 6.75rem;
+  cursor: pointer;
 }
 
 .nextBtn {
@@ -87,4 +87,8 @@
 .avatar:hover {
   border: 5px solid #454EE9;
   border-radius: 8rem;
+}
+
+.avatar:active {
+  border: 10px solid blue;
 }
