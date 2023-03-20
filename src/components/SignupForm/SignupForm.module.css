@@ -24,7 +24,6 @@ label {
 }
 
 .button {
-  font-family: "SF Pro";
   font-size: 1rem;
   border: none;
   margin-top: 1rem;
@@ -32,4 +31,5 @@ label {
   background-color: #454EE9;
   color: white;
   cursor: pointer;
+  font-family: var(--font-family-ubuntu);
 }

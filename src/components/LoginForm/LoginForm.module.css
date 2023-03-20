@@ -18,7 +18,7 @@
 }
 
 .button {
-  font-family: "SF Pro";
+  font-family: var(--font-family-ubuntu);
   font-size: 1rem;
   border: none;
   margin-top: 1rem;
