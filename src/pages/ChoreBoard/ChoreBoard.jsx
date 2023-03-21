@@ -45,7 +45,7 @@ const ChoreBoard = () => {
         </div>
         <ProgressBar score={ 20} price={700} goal={"Nerf Gun"}/>
         <div className={styles.question}>
-          <p>Did {child.name} complete their tasks today? <Link to ={`/kidChores/${childId}`}><img className={styles.pencil} src="/assets/Pencil.svg"></img></Link></p>
+          <p>Did {child.name} complete their tasks today? &nbsp;<Link to ={`/kidChores/${childId}`}><img className={styles.pencil} src="/assets/Pencil.svg"></img></Link></p>
         </div>
         { tasks.length ? (
           <h1 className={styles.taskList}>{tasks.map((task) => 

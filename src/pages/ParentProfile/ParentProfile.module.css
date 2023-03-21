@@ -55,7 +55,7 @@
 }
 
 .childrenList {
-  height: 35vh;
+  height: 55vh;
   overflow-y: scroll;
   margin: 0rem 0.3rem 1rem 0.3rem;
   cursor: pointer;
@@ -121,4 +121,14 @@
   height: 5rem;
   border-radius: 6rem;
   margin: 1rem 1.25rem 1rem 1rem;
+}
+
+@media screen and (min-width: 450px) {
+  .childrenListContainer, .addChildButton {
+    display: flex;
+    justify-content: center;
+  }
+  .kidItem {
+    padding: 0 5rem;
+  }
 }

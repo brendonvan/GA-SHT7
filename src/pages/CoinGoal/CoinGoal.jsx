@@ -33,7 +33,7 @@ export default function CoinGoal() {
           <p>Parents will determine the true monetary value of each coin.</p>
           <p>This can be adjusted in parent profile</p>
         </div>
-        <Link to ="/parentprofile">
+        <Link id="saveLink" to ="/parentprofile">
           <button className={styles.save}>Create Profile</button>
         </Link>
     </div>

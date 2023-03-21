@@ -143,3 +143,14 @@
   font-size: 2rem;
   color: var(--text-button);
 }
+
+@media screen and (min-width: 450px) {
+  .question {
+    display: flex;
+    justify-content: center;
+  }
+  .taskList {
+    margin-left: 35rem;
+    margin-right: 35rem;
+  }
+}

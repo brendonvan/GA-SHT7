@@ -147,3 +147,17 @@
   width: 40px;
   height: 40px;
 }
+
+@media screen and (min-width: 500px) {
+  .coinValue, .setCoinValue, .goal, .dreamItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .save {
+    position: absolute;
+    left: 44%;
+    top: 80%;
+  }
+}
