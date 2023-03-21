@@ -96,3 +96,9 @@
   letter-spacing: -0.063rem;
   color: var(--input-placeholder);
 }
+
+@media screen and (min-width: 500px) {
+  .nextBtn {
+    margin-top: 5rem;
+  }
+}

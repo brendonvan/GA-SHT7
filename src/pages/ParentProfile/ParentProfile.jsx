@@ -42,9 +42,7 @@ const ParentProfile = () => {
           <h1 className={styles.listLabel}>Kids</h1>
           <div className={styles.line}></div>
         </div>
-        <div className={styles.childrenList}>
-          
-
+        <div className={styles.childrenListContainer}>
           {/* TODO: Map this for each child in array */}
           { list.length ? (
             <h1 className={styles.childrenList}>{list.map((child) => 
@@ -54,9 +52,6 @@ const ParentProfile = () => {
                 </div>
               )}</h1>
           ) : "" }
-
-          
-
         </div>
         <div className={styles.addChildButton} onClick={() => { navigate('/createkidprofile') }}>
           <div className={styles.addBtn}>+</div>

@@ -152,3 +152,19 @@
 input[type="checkbox"] {
   border-radius: 30px;
 }
+
+
+@media screen and (min-width:500px) {
+  .formField {
+    margin-left: 30rem;
+    margin-right: 30rem;
+  }
+  .addTask {
+    display: flex;
+    margin-left: 30rem;
+    width: 26%;
+  }
+  .save {
+    margin-top: 2rem;
+  }
+}
