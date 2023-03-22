@@ -17,10 +17,8 @@ import CoinGoal from './pages/CoinGoal/CoinGoal'
 import Feed from './pages/Feed/Feed'
 import Map from './pages/Map/Map'
 import ParentProfile from './pages/ParentProfile/ParentProfile'
-
-// TODO: Not being used currently
-
 import ChoreBoard from './pages/ChoreBoard/ChoreBoard'
+
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
@@ -47,12 +45,6 @@ const App = () => {
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
 
-  const handleLogout = () => {
-    authService.logout()
-    dispatch(setCurrentUser(profile.user, null))
-    navigate('/')
-  }
-
   const handleSignupOrLogin = () => {
     dispatch(setCurrentUser(profile, authService.getUser()))
   }
@@ -61,9 +53,6 @@ const App = () => {
     const fetchProfile = async () => {
       dispatch(setCurrentUser(profile, authService.getUser()))
       console.log('profileID:', authService.getUser())
-      console.log('profile:', profile.user)
-      // const profile = await profileService.showProfile(user.userId)
-      // setProfile(profile)
     }
     fetchProfile()
   }, [])
@@ -71,7 +60,7 @@ const App = () => {
 
   const handleAddChild = async (childData) => {
     try {
-      await profileService.createChild(profile.user, childData)
+      await profileService.createChild(authService.getUser(), childData)
     } catch (error) {
       console.log(error)
     }
@@ -82,7 +71,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={profile.user ? <ParentProfile /> : <Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={authService.getUser() ? <ParentProfile /> : <Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
           path="/login"
@@ -90,7 +79,7 @@ const App = () => {
         />
         <Route 
           path="/onboarding"
-          element={<Landing user={profile.user} Onboarding={Onboarding}
+          element={<Landing user={authService.getUser()} Onboarding={Onboarding}
         />} />
         <Route
           path="/createparentprofile"
@@ -211,7 +200,7 @@ const App = () => {
       </Routes>
 
 
-      <NavBar user={profile.user} handleLogout={handleLogout} />
+      <NavBar user={profile.user} />
     </div>
   )
 }
