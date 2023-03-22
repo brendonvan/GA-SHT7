@@ -6,11 +6,17 @@
   flex-flow: column;
 }
 
-.back {
+.back, .logout {
   width: 1.5rem;
   height: 1.5rem;
   margin: 2rem 2rem 0 2rem;
   cursor: pointer;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header {

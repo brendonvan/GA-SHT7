@@ -1,12 +1,13 @@
 import styles from './ParentProfile.module.css'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // redux actions
-import { setProfileName } from '../../actions'
+import { setCurrentUser } from '../../actions'
 
 // services
+import * as authService from '../../services/authService'
 import * as profileService from '../../services/profileService'
 
 const ParentProfile = () => {
@@ -16,22 +17,37 @@ const ParentProfile = () => {
 
   const [list, setList] = useState([]);
 
-  // useEffect(() => {
-  //   checkForChildren()
-  // }, [])
-
-  async function checkForChildren() {
-    if(profile){
-      const db = await profileService.showProfile(profile.user.profile)
-      setList(db.child)
-    }
+  const handleLogout = () => {
+    authService.logout()
+    dispatch(setCurrentUser(profile.user, null))
+    navigate('/')
   }
+
+  useEffect(() => {
+    const checkForChildren = async () => {
+      try {
+        if(profile){
+          const db = await profileService.showProfile(profile.user.profile)
+          setList(db.child)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    checkForChildren()
+  }, [profile])
+
+  
   
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
+          <div className={styles.navigation}>
+            <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
+            <img className={styles.logout} src="/assets/logout.svg" alt="logout" onClick={ handleLogout } />
+          </div>
           <h1 className={styles.header_h1}>Parent Profile</h1>
         </div>
         <div className={styles.selectAvatar}>
@@ -45,7 +61,7 @@ const ParentProfile = () => {
         <div className={styles.childrenListContainer}>
           { list.length ? (
             <h1 className={styles.childrenList}>{list.map((child) => 
-                <div className={styles.kidItem} onClick={() => { navigate(`/choreboard/${child._id}`) }}>
+                <div key={child._id} className={styles.kidItem} onClick={() => { navigate(`/choreboard/${child._id}`) }}>
                   <img className={styles.kidImg} src={child.avatar} alt={child.avatar} />
                   <p className={styles.kidName}>{child.name}</p>
                 </div>

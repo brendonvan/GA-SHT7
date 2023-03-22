@@ -56,7 +56,7 @@ const NavBar = () => {
           </li>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/parentprofile">
-              <img className={styles.navItemImgProfile} src={ profile.avatar } alt={ profile.avatar } />
+              <img className={styles.navItemImgProfile} src={ profile.profileAvatar } alt={ profile.profileAvatar } />
               <div>Profile</div>
             </Link>
           </li>

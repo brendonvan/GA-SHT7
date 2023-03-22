@@ -1,10 +1,7 @@
 import styles from './ChoreBoard.module.css'
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Routes, Route, useNavigate, Navigate, Link, useParams } from 'react-router-dom'
-
-// redux actions
-import { setProfileName } from '../../actions'
+import { useSelector } from 'react-redux'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -12,7 +9,6 @@ import * as profileService from '../../services/profileService'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
 const ChoreBoard = () => {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
   const childId = useParams().id
@@ -27,7 +23,6 @@ const ChoreBoard = () => {
 
   useEffect(() => {
     fetchChild()
-    console.log(child)
   }, [])
   
 
