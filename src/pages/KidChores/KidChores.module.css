@@ -145,6 +145,7 @@
   border: none;
   width: 12.5rem;
   height: 3.25rem;
+  margin-top: 1rem;
   margin-bottom: 3.688rem;
   cursor: pointer;
 }
@@ -158,11 +159,6 @@ input[type="checkbox"] {
   .formField {
     margin-left: 30rem;
     margin-right: 30rem;
-  }
-  .addTask {
-    display: flex;
-    margin-left: 30rem;
-    width: 26%;
   }
   .save {
     margin-top: 2rem;

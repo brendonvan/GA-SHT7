@@ -61,7 +61,7 @@ const CreateKidProfile = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
+        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate("/parentprofile")}} />
           <h1 className={styles.header_h1}>Kid Profile</h1>
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>
@@ -74,9 +74,9 @@ const CreateKidProfile = () => {
             <div className={styles.gridCell}><img className={avatar3} onClick={ () => { handleProfileChange(child, "/assets/Kid_3.png") } } src="/assets/Kid_3.png" alt="choice-1-girl" /></div>
             <div className={styles.gridCell}><img className={avatar4} onClick={ () => { handleProfileChange(child, "/assets/Kid_4.png") } } src="/assets/Kid_4.png" alt="choice-2-boy" /></div>
           </div>
+          <div className={styles.nextBtn} onClick={() => { navigate('/createkidprofile/setup') }}>Next</div>
         </div>
       </div>
-      <div className={styles.nextBtn} onClick={() => { navigate('/createkidprofile/setup') }}>Next</div>
     </div>
   )
 }

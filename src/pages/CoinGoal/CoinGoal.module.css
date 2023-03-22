@@ -123,9 +123,6 @@
 }
 
 .save {
-  position: absolute;
-  left: 24%;
-  top: 110%;
   width: 12.5rem;
   height: 3.25rem;
   font-size: 1rem;
@@ -135,7 +132,11 @@
   background-color: #454EE9;
   color: white;
   cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 4.5rem;
 }
+
+
 
 .coinInput {
   width: 1.5rem;
@@ -155,9 +156,9 @@
     justify-content: center;
     flex-direction: column;
   }
+
   .save {
-    position: absolute;
-    left: 44%;
-    top: 80%;
+    margin-left: 0;
   }
+
 }

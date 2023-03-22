@@ -40,7 +40,7 @@ const CreateKidProfileSetup = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.header}>
-        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
+        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate("/createkidprofile")}} />
           <h1 className={styles.header_h1}>Kid Profile</h1>
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>

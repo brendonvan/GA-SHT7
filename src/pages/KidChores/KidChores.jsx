@@ -134,7 +134,6 @@ export default function KidChores() {
                   )
                 }
               )}
-            </form>
               <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={handleSubmit}>+</div>
                 <input type="text"
                 name='taskName'
@@ -143,12 +142,13 @@ export default function KidChores() {
                   onChange={handleChange}
                   autoComplete='off'  />
               </div>
+            </form>
           </div>
+          <Link to='/coingoal'>
+            <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
+          </Link>
         </div>
       </div>
-      <Link to='/coingoal'>
-        <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
-      </Link>
     </div>
   )
 
