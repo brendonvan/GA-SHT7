@@ -16,9 +16,9 @@ const ParentProfile = () => {
 
   const [list, setList] = useState([]);
 
-  useEffect(() => {
-    checkForChildren()
-  }, [])
+  // useEffect(() => {
+  //   checkForChildren()
+  // }, [])
 
   async function checkForChildren() {
     if(profile){
@@ -43,7 +43,6 @@ const ParentProfile = () => {
           <div className={styles.line}></div>
         </div>
         <div className={styles.childrenListContainer}>
-          {/* TODO: Map this for each child in array */}
           { list.length ? (
             <h1 className={styles.childrenList}>{list.map((child) => 
                 <div className={styles.kidItem} onClick={() => { navigate(`/choreboard/${child._id}`) }}>

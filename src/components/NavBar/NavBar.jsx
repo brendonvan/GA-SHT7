@@ -1,17 +1,46 @@
 import styles from './NavBar.module.css'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-
-import Profiles from '../../pages/Profiles/Profiles';
-
+// redux actions
+import { setNavbar } from '../../actions'
 
 const NavBar = () => {
-  const profile = useSelector(state => state.profileReducer);
-  
+  const dispatch = useDispatch()
+  const profile = useSelector(state => state.profileReducer)
+  const navbar = useSelector(state => state.navbarReducer)
+  const location = useLocation()
+  const page = location.pathname.split('/')[1].toLowerCase();
+
+  function handleShowNavbar() {
+    switch (page) {
+      case "":
+      case "login":
+      case "createparentprofile":
+      case "createkidprofile":
+      case "choreboard":
+      case "kidchores":
+      case "coingoal":
+        dispatch(setNavbar(false)) // navbar hide
+        break
+      case "feed":
+      case "map":
+      case "parentprofile":
+        dispatch(setNavbar(true)) // navbar show
+        break
+      default:
+        break
+    }
+  }
+
+  useEffect(() => {
+    // grab page name
+    handleShowNavbar()
+  }, [page])
+
   return (
-    <nav className={styles.container}>
-      {profile && !profile.showOnboarding && !profile.showCreateChild ?
+    <nav className={ navbar.show ? `${styles.container}` : `${styles.container} ${styles.hide}`}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/feed">
@@ -27,16 +56,11 @@ const NavBar = () => {
           </li>
           <li className={styles.navItem}>
             <Link className={styles.link} to="/parentprofile">
-               {/* TODO: Update different avatar for different profiles */}
-              <img className={styles.navItemImgProfile} src="/assets/Parent_Avatar_4.png" alt="Parent_Avatar_Female_2" />
+              <img className={styles.navItemImgProfile} src={ profile.avatar } alt={ profile.avatar } />
               <div>Profile</div>
             </Link>
           </li>
         </ul>
-      :
-        <>
-        </>
-      }
     </nav>
   )
 }

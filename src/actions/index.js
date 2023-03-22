@@ -1,3 +1,10 @@
+export const setNavbar = ( showNavbar ) => {
+    return {
+        type: 'SET_NAVBAR',
+        payload: { show: showNavbar }
+    }
+}
+
 export const setCurrentUser = ( initProfile, user ) => {
     let currentProfile = { ...initProfile, user }
     return {
@@ -10,14 +17,6 @@ export const setOnboarding = ( profile, showOnboarding) => {
     let currentProfile = { ...profile, showOnboarding }
     return {
         type: 'SET_ONBOARDING',
-        payload: currentProfile
-    }
-}
-
-export const setShowCreateChild = ( profile, showCreateChild) => {
-    let currentProfile = { ...profile, showCreateChild }
-    return {
-        type: 'SET_SHOWCREATECHILD',
         payload: currentProfile
     }
 }

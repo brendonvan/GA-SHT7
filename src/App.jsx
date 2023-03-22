@@ -95,83 +95,81 @@ const App = () => {
         <Route
           path="/createparentprofile"
           element={
-            profile.user ?
-            <DuplicateProfilePrevention /> :
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <CreateParentProfile />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/createparentprofile/setup"
           element={
-            profile.user ?
-            <DuplicateProfilePrevention /> :
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <CreateParentProfileSetup />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/createkidprofile"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <CreateKidProfile />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/createkidprofile/setup"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <CreateKidProfileSetup />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/coingoal"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <CoinGoal />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/feed"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <Feed />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/map"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <Map />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/parentprofile"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <ParentProfile />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/choreboard/:id"
           element={
-            //<ProtectedRoute user={user}>
+            <ProtectedRoute user={authService.getUser()}>
               <ChoreBoard />
-            //</ProtectedRoute>
+            </ProtectedRoute>
           }
         />  
         <Route 
           path="/kidChores/:id"
           element= {
-            <KidChores />
+            <ProtectedRoute user={authService.getUser()}>
+              <KidChores />
+            </ProtectedRoute>
           }
         />
 
