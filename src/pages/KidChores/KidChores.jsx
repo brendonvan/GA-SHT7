@@ -105,14 +105,9 @@ export default function KidChores() {
       console.log(error)
     }
   }  
-
-  
-  
-
   useEffect(() => {
     fetchChild()
   }, [])
-  
 
   return (
     <div className={styles.container}>

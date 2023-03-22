@@ -11,6 +11,7 @@ import CreateParentProfile from './pages/CreateParentProfile/CreateParentProfile
 import CreateParentProfileSetup from './pages/CreateParentProfileSetup/CreateParentProfileSetup'
 import CreateKidProfile from './pages/CreateKidProfile/CreateKidProfile'
 import CreateKidProfileSetup from './pages/CreateKidProfileSetup/CreateKidProfileSetup'
+import DuplicateProfilePrevention from './pages/DuplicateProfilePrevention/DuplicateProfilePrevention'
 import KidChores from './pages/KidChores/KidChores'
 import CoinGoal from './pages/CoinGoal/CoinGoal'
 import Feed from './pages/Feed/Feed'
@@ -81,7 +82,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+          element={profile.user ? <ParentProfile /> : <Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
           path="/login"
@@ -94,6 +95,8 @@ const App = () => {
         <Route
           path="/createparentprofile"
           element={
+            profile.user ?
+            <DuplicateProfilePrevention /> :
             //<ProtectedRoute user={user}>
               <CreateParentProfile />
             //</ProtectedRoute>
@@ -102,6 +105,8 @@ const App = () => {
         <Route
           path="/createparentprofile/setup"
           element={
+            profile.user ?
+            <DuplicateProfilePrevention /> :
             //<ProtectedRoute user={user}>
               <CreateParentProfileSetup />
             //</ProtectedRoute>
