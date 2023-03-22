@@ -1,15 +1,14 @@
 import styles from './CreateKidProfile.module.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // redux actions
-import { setChildAvatar, setShowCreateChild } from '../../actions';
+import { setChildAvatar } from '../../actions';
 
 const CreateKidProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const profile = useSelector(state => state.profileReducer)
   const child = useSelector(state => state.addChildProfileReducer)
 
   const [avatar1, setAvatar1] = useState(`${styles.avatar}`);
@@ -53,10 +52,6 @@ const CreateKidProfile = () => {
     }
   }
 
-  useEffect(() => {
-    dispatch(setShowCreateChild(profile, true))
-  }, [])
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -66,7 +61,6 @@ const CreateKidProfile = () => {
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>
         <div className={styles.selectAvatar}>
-          {/* TODO: Update this name for current profile */}
           <img className={styles.chosenAvatar} src={ child.avatar } alt={ child.avatar }></img>
           <div className={styles.availableAvatar}>
             <div className={styles.gridCell}><img className={avatar1} onClick={ () => { handleProfileChange(child, "/assets/Kid_1.png") } } src="/assets/Kid_1.png" alt="choice-1-girl" /></div>

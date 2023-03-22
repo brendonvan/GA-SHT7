@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // redux actions
-import { setChildName, setShowCreateChild } from '../../actions'
+import { setChildName } from '../../actions'
 
 import * as profileService from '../../services/profileService'
 
@@ -25,15 +25,9 @@ const CreateKidProfileSetup = () => {
       // console.log(child)
       console.log(await profileService.createChild(profile.user.profile, child))
       navigate('/parentprofile')
-      handleFinishChildCreate()
     } catch (error) {
       console.log(error)
     }
-  }
-
-  function handleFinishChildCreate() {
-    dispatch(setShowCreateChild(profile, false))
-    console.log('finish onboarding', profile.showCreateChild)
   }
 
   return (
@@ -45,7 +39,6 @@ const CreateKidProfileSetup = () => {
           <p className={styles.header_p}>Set up this profile with your child</p>
         </div>
         <div className={styles.selectAvatar}>
-          {/* TODO: Update this name for current profile */}
           <img className={styles.chosenAvatar} src={ child.avatar } alt={ child.avatar }></img>
           <div>
             <form className={styles.formField}>

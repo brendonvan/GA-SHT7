@@ -18,17 +18,11 @@ const CreateParentProfileSetup = () => {
 
   function handleNext() {
     dispatch(setProfileName(profile, firstName))
-    handleFinishOnboarding()
     profileService.createProfile(profile)
     console.log(profile)
     navigate('/parentprofile')
   }
-
-  function handleFinishOnboarding() {
-    dispatch(setOnboarding(profile, false))
-    console.log('finish onboarding', profile.showOnboarding)
-  }
-
+  
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

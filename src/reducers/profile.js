@@ -1,7 +1,6 @@
 const initialState = {
     user: null,
     showOnboarding: true,
-    showCreateChild: false,
     name: '',
     profileAvatar: '/assets/Circle.png'
     
@@ -15,9 +14,6 @@ const profileReducer = (state = initialState, action) => {
         case 'SET_ONBOARDING':
             return { ...state ,
                 showOnboarding: action.payload.showOnboarding}
-        case 'SET_SHOWCREATECHILD':
-            return { ...state ,
-                showCreateChild: action.payload.showCreateChild}
         case 'SET_AVATAR':
             return {...state,
             profileAvatar: action.payload.profileAvatar }
