@@ -7,8 +7,7 @@ import { Routes, Route, useNavigate, Navigate, Link, useParams } from 'react-rou
 import { setProfileName } from '../../actions'
 
 // services
-import * as profileService from '../../services/profileService'
-import * as taskService from '../../services/taskService'
+import * as childService from '../../services/childService'
 
 export default function KidChores() {
   const dispatch = useDispatch()
@@ -35,7 +34,7 @@ export default function KidChores() {
     e.preventDefault()
     handleAddTask(form)
     try {
-      await taskService.create(profile.user.profile, childId, tasksData)
+      await childService.create(profile.user.profile, childId, tasksData)
     } catch (error) {
       console.log(error)
     }
@@ -75,7 +74,7 @@ export default function KidChores() {
   const [tasks, setTasks] = useState(preDefinedTasks);
 
   async function fetchChild() {
-    setChild(await profileService.showChild(profile.user.profile, childId))
+    setChild(await childService.show(profile.user.profile, childId))
     setTasks(await tasks)
   }
 
@@ -100,7 +99,7 @@ export default function KidChores() {
     const tasksData = { tasks: selectedTaskIds }
   console.log('tasksData:',tasksData)
     try {
-      await taskService.create(profile.user.profile, childId, tasksData)
+      await childService.createTask(profile.user.profile, childId, tasksData)
     } catch (error) {
       console.log(error)
     }

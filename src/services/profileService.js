@@ -9,7 +9,7 @@ const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/profiles`
 //   return await res.json()
 // }
 
-async function showProfile(profileId) {
+async function show(profileId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
@@ -21,7 +21,7 @@ async function showProfile(profileId) {
 }
 
 
-async function createProfile(profileData) {
+async function create(profileData) {
   try {
     const res = await fetch(BASE_URL, {
       method: "POST",
@@ -38,7 +38,7 @@ async function createProfile(profileData) {
 }
 
 
-const updateProfile = async (profileId, profileData) => {
+const update = async (profileId, profileData) => {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}`, {
       method: 'PATCH',
@@ -55,7 +55,7 @@ const updateProfile = async (profileId, profileData) => {
 }
 
 export {
-  showProfile,
-  createProfile,
-  updateProfile
+  show,
+  create,
+  update
 }

@@ -27,7 +27,8 @@ const ParentProfile = () => {
     const checkForChildren = async () => {
       try {
         if(profile){
-          const db = await profileService.showProfile(profile.user.profile)
+          console.log('profile:', profile)
+          const db = await profileService.show(profile.user.profile)
           setList(db.child)
         }
       } catch (error) {
@@ -59,7 +60,7 @@ const ParentProfile = () => {
           <div className={styles.line}></div>
         </div>
         <div className={styles.childrenListContainer}>
-          { list.length ? (
+          { list ? (
             <h1 className={styles.childrenList}>{list.map((child) => 
                 <div key={child._id} className={styles.kidItem} onClick={() => { navigate(`/choreboard/${child._id}`) }}>
                   <img className={styles.kidImg} src={child.avatar} alt={child.avatar} />
