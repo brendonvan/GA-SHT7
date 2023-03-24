@@ -16,16 +16,6 @@ async function showProfile(profileId) {
   return await res.json()
 }
 
-async function addPhoto(photoData, profileId) {
-  const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
-    },
-    body: photoData
-  })
-  return await res.json()
-}
 
 async function createProfile(profileData) {
   try {
@@ -85,7 +75,6 @@ const updateProfile = async (profileId,profileData) => {
 
 export { 
   showProfile, 
-  addPhoto, 
   createProfile,
   createChild,
   showChild,
