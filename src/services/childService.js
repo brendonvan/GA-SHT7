@@ -62,17 +62,78 @@ async function update(profileId, childId, childData) {
   }
 }
 
-async function deleteTask(taskId) {
+//! Tasks
+
+async function createTask(profileId, childId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}/${taskId}`, {
-      method: 'DELETE',
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+      method: 'POST',
       headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`
-      }
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(taskData)
     })
     return res.json()
   } catch (error) {
+    console.log(error)
+  }
+}
 
+async function indexTasks(profileId, childId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function showTask(profileId, childId, taskId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+async function updateTask(profileId, childId, taskId, taskData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(taskData)
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function deleteTask(profileId, childId, taskId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -82,5 +143,9 @@ export {
   index,
   show,
   update,
-  
+  createTask,
+  indexTasks,
+  showTask,
+  updateTask,
+  deleteTask
 }
