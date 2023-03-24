@@ -10,10 +10,14 @@ const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/profiles`
 // }
 
 async function showProfile(profileId) {
-  const res = await fetch(`${BASE_URL}/${profileId}`, {
-    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
-  })
-  return await res.json()
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 
@@ -21,7 +25,7 @@ async function createProfile(profileData) {
   try {
     const res = await fetch(BASE_URL, {
       method: "POST",
-      headers: { 
+      headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
@@ -33,31 +37,8 @@ async function createProfile(profileData) {
   }
 }
 
-async function createChild(profileId, childData) {
-  try {
-    const res = await fetch(`${BASE_URL}/${profileId}/child`, {
-      method: "POST",
-      headers: { 
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(childData)
-    })
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
 
-async function showChild(profileId, childId) {
-  const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
-    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
-  })
-  return await res.json()
-}
-
-
-const updateProfile = async (profileId,profileData) => {
+const updateProfile = async (profileId, profileData) => {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}`, {
       method: 'PATCH',
@@ -73,10 +54,8 @@ const updateProfile = async (profileId,profileData) => {
   }
 }
 
-export { 
-  showProfile, 
+export {
+  showProfile,
   createProfile,
-  createChild,
-  showChild,
   updateProfile
 }
