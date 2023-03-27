@@ -6,12 +6,10 @@ import * as authService from '../../services/authService'
 const SignupForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
     passwordConf: '',
   })
-  const [photoData, setPhotoData] = useState({})
 
   const handleChange = e => {
     props.updateMessage('')
@@ -21,14 +19,11 @@ const SignupForm = props => {
     })
   }
 
-  const handleChangePhoto = (evt) => {
-    setPhotoData({ photo: evt.target.files[0] })
-  }
 
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await authService.signup(formData, photoData.photo)
+      await authService.signup(formData)
       props.handleSignupOrLogin()
       navigate('/onboarding')
     } catch (err) {
@@ -36,10 +31,10 @@ const SignupForm = props => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { email, password, passwordConf } = formData
 
   const isFormInvalid = () => {
-    return !(name && email && password && password === passwordConf)
+    return !(email && password && password === passwordConf)
   }
 
   return (
@@ -48,18 +43,6 @@ const SignupForm = props => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
-      <div className={styles.inputContainer}>
-        <label>Name</label>
-        <br></br>
-        <input
-          type="text"
-          autoComplete="off"
-          id="name"
-          value={name}
-          name="name"
-          onChange={handleChange}
-        />
-      </div>
       <div className={styles.inputContainer}>
         <label>Email</label>
         <br></br>

@@ -5,6 +5,7 @@ import { useNavigate, Link, useParams } from 'react-router-dom'
 
 // services
 import * as profileService from '../../services/profileService'
+import * as childService from '../../services/childService'
 
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
@@ -17,7 +18,7 @@ const ChoreBoard = () => {
   const [tasks, setTasks] = useState([]);
 
   async function fetchChild() {
-    setChild(await profileService.showChild(profile.user.profile, childId))
+    setChild(await childService.show(profile.user.profile, childId))
     setTasks(await tasks)
   }
 

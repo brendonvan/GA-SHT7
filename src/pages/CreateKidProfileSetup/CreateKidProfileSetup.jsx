@@ -6,7 +6,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 // redux actions
 import { setChildName } from '../../actions'
 
-import * as profileService from '../../services/profileService'
+import * as childService from '../../services/childService'
 
 
 const CreateKidProfileSetup = () => {
@@ -23,7 +23,7 @@ const CreateKidProfileSetup = () => {
       // console.log(firstName)
       // console.log(profile)
       // console.log(child)
-      console.log(await profileService.createChild(profile.user.profile, child))
+      console.log(await childService.show(profile.user.profile, child))
       navigate('/parentprofile')
     } catch (error) {
       console.log(error)

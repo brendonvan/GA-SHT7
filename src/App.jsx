@@ -35,7 +35,6 @@ import { setCurrentUser } from '../src/actions'
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
-import * as taskService from './services/taskService'
 
 // styles
 import './App.css'
@@ -60,7 +59,7 @@ const App = () => {
 
   const handleAddChild = async (childData) => {
     try {
-      await profileService.createChild(authService.getUser(), childData)
+      await profileService.create(authService.getUser(), childData)
     } catch (error) {
       console.log(error)
     }
