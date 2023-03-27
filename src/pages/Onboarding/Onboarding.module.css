@@ -63,7 +63,8 @@ h1 {
 .buttonTxt {
   font-size: 1.5em;
   font-weight: 510;
-  font-family: "SF Pro";
+  color: var(--text-button);
+  font-family: var(--font-family-ubuntu);
   cursor: pointer;
 }
 
