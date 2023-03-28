@@ -16,7 +16,7 @@ const LoginPage = props => {
         <div>
           <h1>Chores for</h1>
           <h1>Coins</h1>
-          <img className={styles.img} src="/assets/Welcome_Screen.png"></img>
+          <img className={styles.img} src="/assets/Welcome_Screen.png" alt='welcome_screen'></img>
           <p>{message}</p>
           <LoginForm
             handleSignupOrLogin={props.handleSignupOrLogin}
