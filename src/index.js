@@ -10,20 +10,16 @@ import allReducers from './reducers';
 import { Provider } from 'react-redux';
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-import PersistGate from 'react-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const persistConfig = { 
     key: "persist-key",
     storage,
 }
 const persistedReducer = persistReducer(persistConfig, allReducers)
-const persistor = persistStore(store)
-
-const myStore = createStore(
-  persistedReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-
+const myStore = createStore(persistedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const persistor = persistStore(myStore)
+  
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <Router>
