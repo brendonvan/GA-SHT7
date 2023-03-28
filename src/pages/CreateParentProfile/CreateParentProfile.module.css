@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 }
 
 .header {
-  width: 100vw;
+  width: 100%;
   height: 11rem;
   background: var(--header-background);
 }
@@ -71,7 +71,8 @@
 .nextBtn {
   width: 12.5rem;
   height: 3.25rem;
-  margin-bottom: 3.688rem;
+  margin-top: 2.7rem;
+  margin-bottom: 4rem;
   background: var(--button-background);
   border-radius: 1.875rem;
   color: var(--text-button);

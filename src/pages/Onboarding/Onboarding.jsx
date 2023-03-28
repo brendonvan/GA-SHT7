@@ -12,6 +12,11 @@ const Onboarding = ({onboardingPage, turnPage}) => {
   const navigate = useNavigate()
   const profile = useSelector(state => state.profileReducer)
 
+  const handleFinishOnboarding = () => {
+    console.log('navigate to /createparentprofile')
+    navigate('/createparentprofile')
+  }
+
   return (
     <>
     { onboardingPage === 1 ? (
@@ -43,7 +48,7 @@ const Onboarding = ({onboardingPage, turnPage}) => {
     <div className={styles.screen3}>
       <img src="/assets/Onboarding_3.png" className={styles.img}></img>
       <h1>Incentivize them to reach their goals through rewards</h1>
-      <button onClick={turnPage}><span className={styles.buttonTxt}><Link className={styles.profileCreate}to = {"/createparentprofile"}>Create Profile!</Link></span></button>
+      <button onClick={handleFinishOnboarding}><span className={styles.buttonTxt}>Create Profile!</span></button>
       <div className={styles.pageTracker}>
         <div className={styles.dot}></div>
         <div className={styles.dot}></div>

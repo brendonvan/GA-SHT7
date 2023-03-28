@@ -17,9 +17,15 @@ const CreateParentProfile = () => {
   const [avatar3, setAvatar3] = useState(`${styles.avatar}`);
   const [avatar4, setAvatar4] = useState(`${styles.avatar}`);
 
+  const handleSetAvatar = () => {
+    dispatch(setProfileAvatar(profile.user.profile, profile.profileAvatar))
+    navigate('/createparentprofile/setup')
+  }
+
   const handleProfileChange = (profile, avatar) => {
-    
+
     dispatch(setProfileAvatar(profile, avatar))
+
     switch (avatar) {
       case "/assets/Parent_Avatar_1.png":
         setAvatar1(`${styles.avatar} ${styles.active}`)
@@ -52,14 +58,10 @@ const CreateParentProfile = () => {
         setAvatar4(`${styles.avatar}`)
         break;
     }
-
-    console.log('user', profile.user)
-    console.log('avatar:', profile.profileAvatar)
   }
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
         <div className={styles.header}>
         <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate(-1)}} />
           <h1 className={styles.header_h1}>Parent Profile</h1>
@@ -74,8 +76,7 @@ const CreateParentProfile = () => {
             <div className={styles.gridCell}><img className={avatar4} src="/assets/Parent_Avatar_4.png" alt="choice-2-female" onClick={() => handleProfileChange(profile, "/assets/Parent_Avatar_4.png")} /></div>
           </div>
         </div>
-      </div>
-      <div className={styles.nextBtn} onClick={() => { navigate('/createparentprofile/setup') }} >Next</div>
+      <div className={styles.nextBtn} onClick={handleSetAvatar} >Next</div>
     </div>
   )
 }

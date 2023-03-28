@@ -8,6 +8,9 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'SET_PROFILE':
+            return { ...state, 
+                profile: action.payload.profile }
         case 'SET_CURRENTUSER':
             return { ...state ,
                 user: action.payload.user}

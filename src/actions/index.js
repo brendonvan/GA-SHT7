@@ -1,3 +1,17 @@
+
+// services
+import * as authService from '../services/authService'
+import * as profileService from '../services/profileService'
+
+export const setProfile = ( profile ) => {
+    const currentProfile = { profile: profile }
+    console.log('here' + profile)
+    return {
+        type: 'SET_PROFILE',
+        payload: currentProfile
+    }
+}
+
 export const setNavbar = ( showNavbar ) => {
     return {
         type: 'SET_NAVBAR',
@@ -23,6 +37,13 @@ export const setOnboarding = ( profile, showOnboarding) => {
 
 export const setProfileAvatar = (profile, profileAvatar) => {
     let currentProfile = { ...profile, profileAvatar }
+    console.log(`HERE2 ${profile} ${profileAvatar}`)
+    
+
+    // call to profile service
+    if(typeof profile == 'string') {
+        profileService.update(profile, { avatar: profileAvatar })
+    }
     return {
         type: 'SET_AVATAR',
         payload: currentProfile

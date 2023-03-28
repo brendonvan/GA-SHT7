@@ -8,9 +8,19 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore } from 'redux';
 import allReducers from './reducers';
 import { Provider } from 'react-redux';
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+import PersistGate from 'react-persist/integration/react'
+
+const persistConfig = { 
+    key: "persist-key",
+    storage,
+}
+const persistedReducer = persistReducer(persistConfig, allReducers)
+const persistor = persistStore(store)
 
 const myStore = createStore(
-  allReducers,
+  persistedReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
@@ -18,7 +28,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <Router>
       <Provider store={myStore}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App /> 
+        </PersistGate>
       </Provider>
     </Router>
 )

@@ -25,15 +25,7 @@ const Landing = () => {
 
   return (
     <main className={styles.container}>
-      <div>
-        {profile.showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
-        {/* <h2>Counter</h2>
-        <div>
-          <button onClick={() => {handleDecrement()}}>-</button>
-          <span>{preview}</span>
-          <button onClick={() => {handleIncrement()}}>+</button>
-        </div> */}
-      </div>
+      {profile.showOnboarding && <Onboarding id={styles.Onboarding} turnPage={turnPage} onboardingPage={onboardingPage} />}
     </main>
   )
 }

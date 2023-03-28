@@ -7,7 +7,11 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import { setProfileName, setOnboarding } from '../../actions';
 
 // services
+import * as authService from '../../services/authService'
 import * as profileService from '../../services/profileService'
+
+// redux actions
+import { setProfile } from '../../actions';
 
 const CreateParentProfileSetup = () => {
   const dispatch = useDispatch()
@@ -15,13 +19,34 @@ const CreateParentProfileSetup = () => {
   const profile = useSelector(state => state.profileReducer)
 
   const [firstName, setFirstName] = useState("");
+  
 
-  function handleNext() {
+  const handleNext = () => {
     dispatch(setProfileName(profile, firstName))
     profileService.update(profile)
     console.log(profile)
     navigate('/parentprofile')
   }
+
+  const fetchProfile = async () => {
+    try {
+      let tempProfile = await profileService.show(authService.getUser()._id)
+
+      console.log(profile)
+      console.log(authService.getUser()._id)
+      console.log(tempProfile)
+      dispatch(setProfile(tempProfile))
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchProfile()
+  
+  }, [])
+  
   
   return (
     <div className={styles.container}>
