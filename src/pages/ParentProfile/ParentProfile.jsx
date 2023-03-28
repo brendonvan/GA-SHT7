@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 // redux actions
-import { setCurrentUser } from '../../actions'
+import { setProfile } from '../../actions'
 
 // services
 import * as authService from '../../services/authService'
@@ -19,7 +19,7 @@ const ParentProfile = () => {
 
   const handleLogout = () => {
     authService.logout()
-    dispatch(setCurrentUser(profile.user, null))
+    dispatch(setProfile(profile, null))
     navigate('/')
   }
 

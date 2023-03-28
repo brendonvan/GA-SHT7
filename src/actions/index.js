@@ -37,8 +37,6 @@ export const setOnboarding = ( profile, showOnboarding) => {
 
 export const setProfileAvatar = (profile, profileAvatar) => {
     let currentProfile = { ...profile, profileAvatar }
-    console.log(`HERE2 ${profile} ${profileAvatar}`)
-    
 
     // call to profile service
     if(typeof profile == 'string') {
@@ -52,6 +50,12 @@ export const setProfileAvatar = (profile, profileAvatar) => {
 
 export const setProfileName = (profile, name) => {
     let currentProfile = { ...profile, name }
+    
+    // call to profile service
+    if(typeof profile == 'string') {
+        console.log("UPDATE SERVICE")
+        profileService.update(profile, { name: name })
+    }
     return {
         type: 'SET_NAME',
         payload: currentProfile

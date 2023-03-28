@@ -23,7 +23,7 @@ const CreateParentProfile = () => {
   }
 
   const handleProfileChange = (profile, avatar) => {
-
+    console.log(profile, avatar)
     dispatch(setProfileAvatar(profile, avatar))
 
     switch (avatar) {

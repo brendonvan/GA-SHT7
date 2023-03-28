@@ -1,9 +1,8 @@
-const initialState = {
+export const initialState = {
     user: null,
     showOnboarding: true,
     name: '',
     profileAvatar: '/assets/Circle.png'
-    
 }
 
 const profileReducer = (state = initialState, action) => {

@@ -22,9 +22,9 @@ const CreateParentProfileSetup = () => {
   
 
   const handleNext = () => {
-    dispatch(setProfileName(profile, firstName))
+    console.log(profile, firstName)
+    dispatch(setProfileName(profile.user.profile, firstName))
     profileService.update(profile)
-    console.log(profile)
     navigate('/parentprofile')
   }
 
