@@ -19,11 +19,8 @@ const CreateKidProfileSetup = () => {
 
   async function handleNext() {
     try {
-      dispatch(setChildName(child, firstName))
-      // console.log(firstName)
-      // console.log(profile)
-      // console.log(child)
-      console.log(await childService.show(profile.user.profile, child))
+      console.log(child.id)
+      dispatch(setChildName(child.id, firstName))
       navigate('/parentprofile')
     } catch (error) {
       console.log(error)

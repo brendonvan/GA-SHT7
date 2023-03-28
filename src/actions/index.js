@@ -2,6 +2,7 @@
 // services
 import * as authService from '../services/authService'
 import * as profileService from '../services/profileService'
+import * as childService from '../services/childService'
 
 export const setProfile = ( profile ) => {
     const currentProfile = { profile: profile }
@@ -50,10 +51,9 @@ export const setProfileAvatar = (profile, profileAvatar) => {
 
 export const setProfileName = (profile, name) => {
     let currentProfile = { ...profile, name }
-    
+
     // call to profile service
     if(typeof profile == 'string') {
-        console.log("UPDATE SERVICE")
         profileService.update(profile, { name: name })
     }
     return {
@@ -62,16 +62,21 @@ export const setProfileName = (profile, name) => {
     }
 }
 
-export const setChildAvatar = (child, avatar) => {
-    let currentChild = { ...child, avatar }
+export const setChildAvatar = (child, avatar, childId) => {
+    let currentChild = { ...child, avatar, childId }
     return {
         type: 'SET_CHILD_AVATAR',
         payload: currentChild
     }
 }
 
-export const setChildName = (child, name) => {
-    let currentChild = { ...child, name }
+export const setChildName = (childId, name) => {
+    let currentChild = { ...childId, name }
+
+    // call to profile service
+    console.log("UPDATE Child name")
+    console.log(childId, name)
+    childService.update(childId, { name: name })
     return {
         type: 'SET_CHILD_NAME',
         payload: currentChild

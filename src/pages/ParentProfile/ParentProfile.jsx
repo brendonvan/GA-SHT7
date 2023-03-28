@@ -8,7 +8,7 @@ import { setProfile } from '../../actions'
 
 // services
 import * as authService from '../../services/authService'
-import * as profileService from '../../services/profileService'
+import * as childService from '../../services/childService'
 
 const ParentProfile = () => {
   const dispatch = useDispatch()
@@ -28,8 +28,9 @@ const ParentProfile = () => {
       try {
         if(profile){
           console.log('profile:', profile)
-          const db = await profileService.show(profile.user.profile)
-          setList(db.child)
+          const db = await childService.index()
+          console.log(db)
+          setList(db)
         }
       } catch (error) {
         console.error(error)
