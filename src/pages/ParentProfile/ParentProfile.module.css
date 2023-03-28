@@ -61,7 +61,7 @@
 }
 
 .childrenList {
-  height: 55vh;
+  height: 35vh;
   overflow-y: scroll;
   margin: 0rem 0.3rem 1rem 0.3rem;
   cursor: pointer;

@@ -3,9 +3,9 @@ import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/child`
 
 
-async function create(profileId, childData) {
+async function create(childData) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}`, {
+    const res = await fetch(`${BASE_URL}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -19,9 +19,9 @@ async function create(profileId, childData) {
   }
 }
 
-async function index(profileId) {
+async function index() {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}`, {
+    const res = await fetch(`${BASE_URL}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
@@ -32,9 +32,9 @@ async function index(profileId) {
   }
 }
 
-async function show(profileId, childId) {
+async function show(childId) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
@@ -46,9 +46,9 @@ async function show(profileId, childId) {
 }
 
 
-async function update(profileId, childId, childData) {
+async function update(childId, childData) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

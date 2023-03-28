@@ -6,6 +6,9 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 // redux actions
 import { setChildAvatar } from '../../actions';
 
+// services
+import * as childService from '../../services/childService'
+
 const CreateKidProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -16,8 +19,14 @@ const CreateKidProfile = () => {
   const [avatar3, setAvatar3] = useState(`${styles.avatar}`);
   const [avatar4, setAvatar4] = useState(`${styles.avatar}`);
 
-  const handleProfileChange = (child, avatar) => {
-    dispatch(setChildAvatar(child, avatar))
+  const handleProfileChange = async (child, avatar) => {
+    
+    // call to profile service
+    console.log("Create Child avatar")
+    const childId = await childService.create({ avatar: avatar })
+    
+    dispatch(setChildAvatar(child, avatar, childId._id))
+    
     switch (avatar) {
       case "/assets/Kid_1.png":
         setAvatar1(`${styles.avatar} ${styles.active}`)

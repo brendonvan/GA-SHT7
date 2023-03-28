@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 // redux actions
-import { setCurrentUser } from '../../actions'
+import { setProfile } from '../../actions'
 
 // services
 import * as authService from '../../services/authService'
-import * as profileService from '../../services/profileService'
+import * as childService from '../../services/childService'
 
 const ParentProfile = () => {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const ParentProfile = () => {
 
   const handleLogout = () => {
     authService.logout()
-    dispatch(setCurrentUser(profile.user, null))
+    dispatch(setProfile(profile, null))
     navigate('/')
   }
 
@@ -28,8 +28,9 @@ const ParentProfile = () => {
       try {
         if(profile){
           console.log('profile:', profile)
-          const db = await profileService.show(profile.user.profile)
-          setList(db.child)
+          const db = await childService.index()
+          console.log(db)
+          setList(db)
         }
       } catch (error) {
         console.error(error)
