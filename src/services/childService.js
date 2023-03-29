@@ -66,7 +66,7 @@ async function update(childId, childData) {
 
 async function createTask(childId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/tasks/${childId}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -95,7 +95,7 @@ async function indexTasks(childId) {
 
 async function showTask(childId, taskId) {
   try {
-    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/tasks/${childId}/${taskId}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
@@ -109,7 +109,7 @@ async function showTask(childId, taskId) {
 
 async function updateTask(childId, taskId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/tasks/${childId}/${taskId}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -125,7 +125,7 @@ async function updateTask(childId, taskId, taskData) {
 
 async function deleteTask(childId, taskId) {
   try {
-    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/tasks/${childId}/${taskId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

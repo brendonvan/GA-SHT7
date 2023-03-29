@@ -11,6 +11,9 @@ const navigate = useNavigate()
           <h1 className={styles.header_h1}>Feed</h1>
         </div>
       </div>
+      <div className={styles.feed}>
+        <img src="/assets/activityboard.png" alt="" srcset="" />
+      </div>
     </div>
   )
 }
