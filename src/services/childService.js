@@ -82,7 +82,7 @@ async function createTask(childId, taskData) {
 
 async function indexTasks(childId) {
   try {
-    const res = await fetch(`${BASE_URL}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/tasks/${childId}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
