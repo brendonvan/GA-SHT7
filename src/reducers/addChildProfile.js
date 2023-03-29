@@ -1,7 +1,10 @@
 const initialState = {
     id: null,
     name: '',
-    avatar: '/assets/Circle.png'
+    avatar: '/assets/Circle.png',
+    currentScore: 0,
+    goalScore: 0,
+    goalItem: '',
     
 }
 

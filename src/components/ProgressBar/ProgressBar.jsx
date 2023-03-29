@@ -18,11 +18,11 @@ const ProgressBar = (props) => {
         </div>
 
         <div className={styles.progressBar}>
-          <div class={`${styles.skillBar} ${styles.skill1} `} style={{width:`${progress}%`}}>
-            <span class={ styles.skillCount1}></span>
+          <div className={`${styles.skillBar} ${styles.skill1} `} style={{width:`${progress}%`}}>
+            <span className={ styles.skillCount1}></span>
           </div>
-          <div class={`${styles.skillBar2} ${styles.skill2} `}>
-            <span class={ styles.skillCount2}></span>
+          <div className={`${styles.skillBar2} ${styles.skill2} `}>
+            <span className={ styles.skillCount2}></span>
           </div>
         </div>
         

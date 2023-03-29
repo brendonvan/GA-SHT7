@@ -26,18 +26,9 @@ export default function KidChores() {
     console.log(form)
   }
 
-  // const clearInput = () => {
-  //   setForm({ taskName: '' })
-  // }
-
-  const handleSubmit = async (e, tasksData) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     handleAddTask(form)
-    try {
-      await childService.create(profile.user.profile, childId, tasksData)
-    } catch (error) {
-      console.log(error)
-    }
     
   }
 
@@ -60,12 +51,12 @@ export default function KidChores() {
     {
       id: "1231243523123",
       taskName: "Clean up dishes",
-      selected: true
+      selected: false
     },
     {
       id: "1223453123123",
       taskName: "Vacuum the living room",
-      selected: true
+      selected: false
     },
 
   ]
@@ -74,7 +65,7 @@ export default function KidChores() {
   const [tasks, setTasks] = useState(preDefinedTasks);
 
   async function fetchChild() {
-    setChild(await childService.show(profile.user.profile, childId))
+    setChild(await childService.show(childId))
     setTasks(await tasks)
   }
 
@@ -87,7 +78,7 @@ export default function KidChores() {
       setSelectedTasks(selectedTasks => selectedTasks.filter(t => t.id !== task.id))
     }
   }
-
+  //TODO: add task to child's tasks
   async function handleAddTask(form) {
       const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: true }
       setTasks(tasks => [...tasks, newTask])
@@ -97,9 +88,12 @@ export default function KidChores() {
   const handleSendTasksToBackEnd = async () => {
     const selectedTaskIds = selectedTasks.map(task => task.taskName)
     const tasksData = { tasks: selectedTaskIds }
-  console.log('tasksData:',tasksData)
+    console.log('tasksData:', tasksData)
+    console.log(childId)
     try {
-      await childService.createTask(profile.user.profile, childId, tasksData)
+      selectedTaskIds.forEach(async (task) => (
+        await childService.createTask(childId, { name: task })
+      ))
     } catch (error) {
       console.log(error)
     }
