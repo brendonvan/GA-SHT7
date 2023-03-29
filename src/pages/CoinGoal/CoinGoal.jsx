@@ -1,8 +1,40 @@
-import styles from './CoinGoal.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import styles from './CoinGoal.module.css'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, Link, useParams } from 'react-router-dom'
+
+// services
+import * as childService from '../../services/childService'
 
 export default function CoinGoal() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const childId = useParams().id
+
+  const [child, setChild] = useState({});
+  const [tasks, setTasks] = useState([]);
+  const [form, setForm] = useState({
+    taskReward: 0,
+  })
+
+  async function fetchChild() {
+    setChild(await childService.show(childId))
+    setTasks(await childService.indexTasks(childId))
+  }
+
+  const handleChange = ({ target }) => {
+    setForm({ ...form, taskReward: target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+  }
+
+  useEffect(() => {
+    fetchChild()
+  }, [])
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -12,16 +44,31 @@ export default function CoinGoal() {
           <p className={styles.header_p}>Enter the number of chore coins each chore <br></br>is worth</p>
         </div>
         <div className={styles.selectAvatar}>
-          <img className={styles.chosenAvatar} src="/assets/Kid_3.png" alt="Kid_3_Image"></img>
-          <h1 className={styles.profileName}>Billy</h1>
+          <img className={styles.chosenAvatar} src={child.avatar} alt={child.avatar}></img>
+          <h1 className={styles.profileName}>{child.name}</h1>
         </div>
         <div className={styles.setCoinValue}>
-          <h1>Set Coin Value</h1>
-          <div>Vacuum the living room<input placeholder='0' className={styles.coinInput}></input><img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img></div>
-          <div>Clean Up Dishes<input placeholder='0' className={styles.coinInput}></input><img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img></div>
+        <h1>Set Coin Value</h1> 
+
+          { tasks.length ? (
+            <h1 className={styles.taskList} >{tasks.map((task) => 
+              <div className={styles.taskItem} key={task._id} >
+                <h3 className={styles.taskName}>{task.name}</h3>
+                <input 
+                  placeholder='0' 
+                  type='number' 
+                  className={styles.coinInput}
+                  name='taskReward'
+                  value={form.taskReward}
+                  onChange={handleChange}
+                  autoComplete='off'></input>
+                <img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img>
+              </div>)}
+            </h1>) : (<div className={styles.taskList}>No Tasks Today</div>) }
+
         </div>
         <div className={styles.goal}>
-          <h1>Set Billy's Goal</h1>
+          <h1>Set {child.name}'s Goal</h1>
         </div>
         <div className={styles.dreamItem}>
           <h1>Dream Item</h1>

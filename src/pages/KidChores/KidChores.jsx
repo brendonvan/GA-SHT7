@@ -23,7 +23,6 @@ export default function KidChores() {
 
   const handleChange = ({ target }) => {
     setForm({ ...form, taskName: target.value })
-    console.log(form)
   }
 
   const handleSubmit = async (e) => {
@@ -70,7 +69,6 @@ export default function KidChores() {
   }
 
   function handleSelectTask(task) {
-    console.log(task)
     task.selected = !task.selected
     if (task.selected){
       setSelectedTasks(selectedTasks => [...selectedTasks, task])
@@ -78,18 +76,15 @@ export default function KidChores() {
       setSelectedTasks(selectedTasks => selectedTasks.filter(t => t.id !== task.id))
     }
   }
-  //TODO: add task to child's tasks
+
   async function handleAddTask(form) {
-      const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: true }
+      const newTask = { id: Date.now().toString(), taskName: form.taskName, selected: false }
       setTasks(tasks => [...tasks, newTask])
       setForm({ taskName: '' })
   }
 
   const handleSendTasksToBackEnd = async () => {
     const selectedTaskIds = selectedTasks.map(task => task.taskName)
-    const tasksData = { tasks: selectedTaskIds }
-    console.log('tasksData:', tasksData)
-    console.log(childId)
     try {
       selectedTaskIds.forEach(async (task) => (
         await childService.createTask(childId, { name: task })
@@ -129,7 +124,7 @@ export default function KidChores() {
               )}
               <div className={styles.addTask}><div className={styles.addTaskCircle} onClick={handleSubmit}>+</div>
                 <input type="text"
-                name='taskName'
+                  name='taskName'
                   placeholder='Create New Chore'
                   value={form.taskName}
                   onChange={handleChange}
@@ -137,7 +132,7 @@ export default function KidChores() {
               </div>
             </form>
           </div>
-          <Link to='/coingoal'>
+          <Link to={`/coingoal/${childId}`}>
             <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
           </Link>
         </div>

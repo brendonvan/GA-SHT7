@@ -74,12 +74,17 @@ export const setChildName = (childId, name) => {
     let currentChild = { ...childId, name }
 
     // call to profile service
-    console.log("UPDATE Child name")
-    console.log(childId, name)
     childService.update(childId, { name: name })
     return {
         type: 'SET_CHILD_NAME',
         payload: currentChild
+    }
+}
+
+export const setTasks = (tasks) => {
+    return {
+        type: 'SET_TASKS',
+        payload: tasks
     }
 }
 

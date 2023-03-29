@@ -113,7 +113,7 @@ const App = () => {
           }
         />
         <Route
-          path="/coingoal"
+          path="/coingoal/:id"
           element={
             <ProtectedRoute user={authService.getUser()}>
               <CoinGoal />

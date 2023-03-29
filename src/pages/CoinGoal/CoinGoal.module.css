@@ -104,16 +104,39 @@
   border: 1px solid #A5A3A3;
 }
 
-.setCoinValue div {
-  width: 21rem;
-  height: 3.5rem;
+.setCoinValue {
   border-radius: 10px;
   outline: none;
-  border: 1px solid #A5A3A3;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-flow: column;
   margin: 1rem 0;
+  padding: 1rem;
+}
+
+.taskList {
+  width: 100%;
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.taskName {
+  font-family: var(--font-family-josefin);
+  font-size: 1.1rem;
+  width: 12rem;
+  text-align: left;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #A5A3A3;
+  position: relative;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  padding: 0 1rem;
 }
 
 .goal h1, .setCoinValue h1 {
@@ -134,9 +157,8 @@
   cursor: pointer;
   margin-top: 1rem;
   margin-left: 4.5rem;
+  font-family: var(--font-family-ubuntu);
 }
-
-
 
 .coinInput {
   width: 1.5rem;
@@ -145,8 +167,13 @@
 }
 
 .choreCoin {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.coinInput:focus{
+  border: none;
+  outline: none;
 }
 
 @media screen and (min-width: 500px) {

@@ -4,14 +4,12 @@ import { useSelector } from 'react-redux'
 import { useNavigate, Link, useParams } from 'react-router-dom'
 
 // services
-import * as profileService from '../../services/profileService'
 import * as childService from '../../services/childService'
 
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 
 const ChoreBoard = () => {
   const navigate = useNavigate()
-  const profile = useSelector(state => state.profileReducer)
   const childId = useParams().id
 
   const [child, setChild] = useState({});
@@ -49,7 +47,6 @@ const ChoreBoard = () => {
         ) : (<div className={styles.taskList}>No Tasks Today</div>) }
         <Link className={styles.chores} to = {`/kidChores/${childId}`} >
           <div className={styles.addBtn}>+</div> Add Chores
-        
         </Link>
     </div>
   )

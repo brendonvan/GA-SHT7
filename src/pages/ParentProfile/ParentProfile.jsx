@@ -27,9 +27,7 @@ const ParentProfile = () => {
     const checkForChildren = async () => {
       try {
         if(profile){
-          console.log('profile:', profile)
           const db = await childService.index()
-          console.log(db)
           setList(db)
         }
       } catch (error) {
