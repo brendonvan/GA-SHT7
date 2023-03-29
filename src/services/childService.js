@@ -64,9 +64,9 @@ async function update(childId, childData) {
 
 //! Tasks
 
-async function createTask(profileId, childId, taskData) {
+async function createTask(childId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -80,9 +80,9 @@ async function createTask(profileId, childId, taskData) {
   }
 }
 
-async function indexTasks(profileId, childId) {
+async function indexTasks(childId) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
@@ -93,9 +93,9 @@ async function indexTasks(profileId, childId) {
   }
 }
 
-async function showTask(profileId, childId, taskId) {
+async function showTask(childId, taskId) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
       },
@@ -107,9 +107,9 @@ async function showTask(profileId, childId, taskId) {
 }
 
 
-async function updateTask(profileId, childId, taskId, taskData) {
+async function updateTask(childId, taskId, taskData) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -123,9 +123,9 @@ async function updateTask(profileId, childId, taskId, taskData) {
   }
 }
 
-async function deleteTask(profileId, childId, taskId) {
+async function deleteTask(childId, taskId) {
   try {
-    const res = await fetch(`${BASE_URL}/${profileId}/${childId}/${taskId}`, {
+    const res = await fetch(`${BASE_URL}/${childId}/${taskId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

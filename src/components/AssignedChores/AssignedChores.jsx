@@ -13,8 +13,8 @@ const AssignedChores = (props) => {
           <p className={styles.amountTask}>{ props.data.amountOfTask } tasks</p>
         </div>
         <div className={styles.right}>
-          <div class={`${styles.skillBar} ${styles.skill1}`}>
-            <span class={ styles.skillCount1}></span>
+          <div className={`${styles.skillBar} ${styles.skill1}`}>
+            <span className={ styles.skillCount1}></span>
           </div>
           <div className={styles.coinsEarned}>
             <img className={styles.coinImg} src="icons/coin.svg" alt="coin-img" />
