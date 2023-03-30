@@ -21,7 +21,6 @@ const ChoreBoard = () => {
     setTasks(await childService.indexTasks(childId))
   }
 
-  console.log(tasks)
   useEffect(() => {
     fetchChild()
   }, [])
@@ -40,7 +39,6 @@ const ChoreBoard = () => {
         <div className={styles.header}>
         <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate("/parentprofile")}} />          {/* TODO: update the name to be for current child */}
           <h1 className={styles.header_h1}>{child.name}'s Chore Board</h1>
-
         </div>
         <div className={styles.selectAvatar}>
           <img className={styles.chosenAvatar} src={child.avatar} alt={child.avatar}></img>
@@ -57,7 +55,6 @@ const ChoreBoard = () => {
                 <div key={task.id} className={styles.task} onClick={() => { handleSelectTask(task) }}>
                   <div className={styles.checkcircle} >
                     <img className={`${styles.check} ${task.selected ? '' : styles.hide}`} src="/assets/check.svg" alt="selected-task" />
-
                   </div>
                   <h2>{task.name}</h2>
                 </div>
