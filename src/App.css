@@ -35,10 +35,6 @@ html {
 }
 
 .app {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    /* I think this should be used within each module instead of the whole project. 
-    display: flex;
-    justify-content: center;
-    align-items: center; */
 }
