@@ -133,8 +133,15 @@
   .childrenListContainer, .addChildButton {
     display: flex;
     justify-content: center;
+    padding-bottom: 1.5rem;
   }
+
+  .addChildButton {
+    padding-bottom: 10rem;
+  }
+
   .kidItem {
     padding: 0 5rem;
   }
 }
+
