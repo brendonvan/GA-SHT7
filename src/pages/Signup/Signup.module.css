@@ -1,7 +1,13 @@
 .container {
+  width: 100%;
   display: flex;
   justify-content: center;
   padding-top: 3rem;
+  overflow-y: hidden;
+}
+
+.container > div {
+  margin-bottom: 2rem;
 }
 
 .container h1 {
