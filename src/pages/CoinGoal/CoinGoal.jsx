@@ -72,7 +72,9 @@ export default function CoinGoal() {
         </div>
         <div className={styles.dreamItem}>
           <h1>Dream Item</h1>
-          <input type="text" />
+          <input type="text" 
+            
+          />
         </div>
         <div className={styles.coinValue}>
           <h1>Coin Value</h1>
