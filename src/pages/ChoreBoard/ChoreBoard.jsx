@@ -20,6 +20,7 @@ const ChoreBoard = () => {
     setChild(await childService.show(childId))
     setTasks(await childService.indexTasks(childId))
   }
+  console.log(tasks)
 
   useEffect(() => {
     fetchChild()
@@ -57,6 +58,7 @@ const ChoreBoard = () => {
                     <img className={`${styles.check} ${task.selected ? '' : styles.hide}`} src="/assets/check.svg" alt="selected-task" />
                   </div>
                   <h2>{task.name}</h2>
+                  <h2>{task.value}</h2>
                 </div>
               </>
             )
