@@ -30,7 +30,7 @@ export default function CoinGoal() {
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+    navigate(`/choreboard/${childId}`)
   }
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function CoinGoal() {
           <p>Parents will determine the true monetary value of each coin.</p>
           <p>This can be adjusted in parent profile</p>
           <Link id="saveLink" to ="/parentprofile">
-            <button className={styles.save} onClick={handleSubmit}>Create Profile</button>
+            <button className={styles.save} onClick={handleSubmit}>Save</button>
           </Link>
         </div>
     </div>

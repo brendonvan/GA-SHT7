@@ -20,7 +20,6 @@ const ChoreBoard = () => {
     setChild(await childService.show(childId))
     setTasks(await childService.indexTasks(childId))
   }
-  console.log(tasks)
 
   useEffect(() => {
     fetchChild()
@@ -35,10 +34,17 @@ const ChoreBoard = () => {
     }
   }
 
+  function handleCompleteTasks() {
+    console.log(child.currentScore)
+    console.log(child.goalScore)
+    console.log(child.goalItem)
+
+  }
+
   return (
     <div className={styles.container}>
         <div className={styles.header}>
-        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate("/parentprofile")}} />          {/* TODO: update the name to be for current child */}
+        <img className={styles.back} src="/assets/Arrow.svg" alt="back-arrow" onClick={() => {navigate("/parentprofile")}} />   
           <h1 className={styles.header_h1}>{child.name}'s Chore Board</h1>
         </div>
         <div className={styles.selectAvatar}>
@@ -50,25 +56,23 @@ const ChoreBoard = () => {
           <p>Did {child.name} complete their tasks today? &nbsp;<Link to ={`/kidChores/${childId}`}><img className={styles.pencil} src="/assets/Pencil.svg"></img></Link></p>
         </div>
         { tasks.length ? (
-          <div className={styles.taskList}>{tasks.map((task) => {
-            return (
-              <>
-                <div key={task.id} className={styles.task} onClick={() => { handleSelectTask(task) }}>
+            <h1 className={styles.taskList} >{tasks.map((task) => 
+              <div key={task._id} className={styles.task} onClick={() => { handleSelectTask(task) }}>
+                <div className={styles.taskItem} key={task._id} >
                   <div className={styles.checkcircle} >
                     <img className={`${styles.check} ${task.selected ? '' : styles.hide}`} src="/assets/check.svg" alt="selected-task" />
                   </div>
-                  <h2>{task.name}</h2>
-                  <h2>{task.value}</h2>
+                  <h3 className={styles.taskName}>{task.name}</h3>
+                  <h3 className={styles.taskValue}> {task.value} </h3>
+                  <img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img>
                 </div>
-              </>
-            )
-          }
-        )}
-          </div>
-        ) : (<div className={styles.taskList}>No Tasks Today</div>) }
-        <Link className={styles.chores} to = {`/kidChores/${childId}`} >
+              </div>)}
+            </h1>) : (<div className={styles.taskList}>No Tasks Today</div>) }
+        { selectedTasks.length ? ( <div className={styles.completedBtn} onClick={handleCompleteTasks} >Chores complete</div> ) 
+        : 
+        ( <Link className={styles.add} to = {`/kidChores/${childId}`} >
           <div className={styles.addBtn}>+</div> Add Chores
-        </Link>
+        </Link> ) }
     </div>
   )
 }

@@ -92,9 +92,10 @@
 }
 
 .coinImg {
-  width: 2.438rem;
-  height: 2.438rem;
+  width: 2.2rem;
+  height: 2.2rem;
   margin-left: -0.25rem;
+  margin-top: 0.25rem;
 }
 
 .left, .right {
@@ -103,7 +104,6 @@
 
 .count {
   font-family: var(--font-family-josefin);
-  margin-top: -0.25rem;
   display: flex;
   align-items: center;
 }
