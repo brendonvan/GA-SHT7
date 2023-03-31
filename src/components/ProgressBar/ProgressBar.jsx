@@ -18,7 +18,7 @@ const ProgressBar = (props) => {
         </div>
 
         <div className={styles.progressBar}>
-          <div className={`${styles.skillBar} ${styles.skill1} `} style={{width:`${progress}%`}}>
+          <div className={`${styles.skillBar} ${styles.skill1} `} style={{width:`${progress}%`, backgroundColor: "#4DCC59"}}>
             <span className={ styles.skillCount1}></span>
           </div>
           <div className={`${styles.skillBar2} ${styles.skill2} `}>
