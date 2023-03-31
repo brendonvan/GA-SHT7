@@ -16,6 +16,10 @@ export default function CoinGoal() {
   const [form, setForm] = useState({
     taskReward: 0,
   })
+  const [itemForm, setItemForm] = useState({
+    goalItem: "",
+    goalScore: 0,
+  })
 
   async function fetchChild() {
     setChild(await childService.show(childId))
@@ -26,7 +30,17 @@ export default function CoinGoal() {
     setForm({ ...form, taskReward: e.target.value })
     await childService.updateTask(childId, task._id, {taskReward: e.target.value});
   }
-  
+
+  const handleItem = async (e) => {
+    setItemForm({...itemForm, goalItem: e.target.value})
+    await childService.update(childId, {goalItem: e.target.value})
+  }
+
+  const handleGoal = async (e) => {
+    setItemForm({...itemForm, goalScore: e.target.value})
+    let test = await childService.update(childId, {goalScore: e.target.value})
+    console.log(e.target.value)
+  }
   
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -61,7 +75,6 @@ export default function CoinGoal() {
                   type='number' 
                   className={styles.coinInput}
                   name='taskReward'
-                  // value={form.taskReward}
                   onChange={ (e)=> handleChange(e, task)}
                   autoComplete='off'></input>
                 <img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img>
@@ -75,12 +88,14 @@ export default function CoinGoal() {
         <div className={styles.dreamItem}>
           <h1>Dream Item</h1>
           <input type="text" 
-            
+            onChange={(e) => handleItem(e)}
           />
         </div>
         <div className={styles.coinValue}>
           <h1>Coin Value</h1>
-          <input type="text" />
+          <input type="text" 
+            onChange={(e) => handleGoal(e)}
+          />
           <p>Parents will determine the true monetary value of each coin.</p>
           <p>This can be adjusted in parent profile</p>
           <Link id="saveLink" to ="/parentprofile">
