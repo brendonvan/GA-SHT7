@@ -107,28 +107,65 @@
 .question * {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.completedBtn {
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  font-family: var(--font-family-ubuntu);
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--button-background);
+  text-align: center;
+  line-height: 2.5rem;
+  margin: 1rem 1rem 4rem 1rem;
+  padding: 1.5rem 3rem;
+  color: var(--text-button);
+  box-shadow: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .taskList {
-  width: 80%;
-  padding: 1rem;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border: 1px solid #848383;
-  font-family: "Josefin Sans";
+  width: 100%;
+  height: 25vh;
+  overflow-y: scroll;
 }
 
-.task {
+.taskName {
+  font-family: var(--font-family-josefin);
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 12rem;
+  text-align: left;
+}
+
+.taskValue {
+  font-family: var(--font-family-josefin);
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 2rem;
+}
+
+.taskItem {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 0.5rem 0;
+  justify-content: space-between;
+  border: 1px solid #A5A3A3;
+  position: relative;
+  border-radius: 0.2rem;
+  margin: 1rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
+.choreCoin {
+  width: 2.5rem;
+  height: 2.5rem;
+}
 .checkcircle {
   display: flex;
   justify-content: center;
@@ -139,22 +176,9 @@
   height: 2.43rem;
   border: 1px solid var(--text-base);
   border-radius: 2.43rem;
-  margin-left: 1rem;
-  margin-right: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.chores {
-  display: flex;
-  padding-top: 1rem;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  font-family: "Josefin Sans";
-  margin-bottom: 4rem;
 }
 
 .addBtn {
@@ -167,6 +191,20 @@
   margin: 0.5rem;
   font-size: 2rem;
   color: var(--text-button);
+  box-shadow: 0;
+}
+
+.add {
+  width: 100%;
+  height: 4rem;
+  text-decoration: none;
+  color: var(--text-base);
+  font-family: var(--font-family-ubuntu);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row;
+  margin-bottom: 4rem;
 }
 
 .check {

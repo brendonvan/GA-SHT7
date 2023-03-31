@@ -133,7 +133,7 @@ export default function KidChores() {
             </form>
           </div>
           <Link to={`/coingoal/${childId}`}>
-            <button className={styles.save} onClick={handleSendTasksToBackEnd}>Save</button>
+            <button className={styles.save} onClick={handleSendTasksToBackEnd}>Next</button>
           </Link>
         </div>
       </div>
