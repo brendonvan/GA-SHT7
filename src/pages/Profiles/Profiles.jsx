@@ -26,13 +26,11 @@ const Profiles = ({ profile, handleAddChild, handleLogout, CreateKidProfile  }) 
 
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
-    console.log(form)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     handleAddChild(form)
-    console.log('Submit:', form)
   }
 
   const handleAvatarSelect = (e) => {
@@ -54,7 +52,6 @@ const Profiles = ({ profile, handleAddChild, handleLogout, CreateKidProfile  }) 
     const av = e.target.src
 
     avatarSelection = av
-    console.log('Selected Avatar:', avatarSelection)
   }
 
   return (
