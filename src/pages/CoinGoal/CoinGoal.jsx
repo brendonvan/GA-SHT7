@@ -22,10 +22,12 @@ export default function CoinGoal() {
     setTasks(await childService.indexTasks(childId))
   }
 
-  const handleChange = ({ target }) => {
-    setForm({ ...form, taskReward: target.value })
+   const handleChange = async(e, task) => {
+    setForm({ ...form, taskReward: e.target.value })
+    await childService.updateTask(childId, task._id, {taskReward: e.target.value});
   }
-
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     
@@ -59,8 +61,8 @@ export default function CoinGoal() {
                   type='number' 
                   className={styles.coinInput}
                   name='taskReward'
-                  value={form.taskReward}
-                  onChange={handleChange}
+                  // value={form.taskReward}
+                  onChange={ (e)=> handleChange(e, task)}
                   autoComplete='off'></input>
                 <img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img>
               </div>)}
@@ -82,7 +84,7 @@ export default function CoinGoal() {
           <p>Parents will determine the true monetary value of each coin.</p>
           <p>This can be adjusted in parent profile</p>
           <Link id="saveLink" to ="/parentprofile">
-            <button className={styles.save}>Create Profile</button>
+            <button className={styles.save} onClick={handleSubmit}>Create Profile</button>
           </Link>
         </div>
     </div>
