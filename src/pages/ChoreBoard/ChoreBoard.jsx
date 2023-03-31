@@ -7,6 +7,7 @@ import { useNavigate, Link, useParams } from 'react-router-dom'
 import * as childService from '../../services/childService'
 
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
+import { current } from '@reduxjs/toolkit'
 
 const ChoreBoard = () => {
   const navigate = useNavigate()
@@ -19,6 +20,7 @@ const ChoreBoard = () => {
   async function fetchChild() {
     setChild(await childService.show(childId))
     setTasks(await childService.indexTasks(childId))
+    
   }
 
   useEffect(() => {
@@ -30,15 +32,21 @@ const ChoreBoard = () => {
     if (task.selected){
       setSelectedTasks(selectedTasks => [...selectedTasks, task])
     } else {
-      setSelectedTasks(selectedTasks => selectedTasks.filter(t => t.id !== task.id))
+      setSelectedTasks(selectedTasks => selectedTasks.filter(t => t !== task))
     }
   }
+  
 
   function handleCompleteTasks() {
-    console.log(child.currentScore)
-    console.log(child.goalScore)
-    console.log(child.goalItem)
-
+    // add all selected tasks value to current score
+    selectedTasks.forEach( async (task) => {
+      setSelectedTasks(selectedTasks.filter((t) => t !== task))
+      // add value to currentScore update in backend
+      await childService.update(childId, { currentScore: child.currentScore + task.value })
+      // delete task
+      await childService.deleteTask(child._id, task._id)
+    })
+    fetchChild()
   }
 
   return (
@@ -67,7 +75,7 @@ const ChoreBoard = () => {
                   <img className={styles.choreCoin}src='/assets/Chore_coin.svg'></img>
                 </div>
               </div>)}
-            </h1>) : (<div className={styles.taskList}>No Tasks Today</div>) }
+            </h1>) : (<div className={styles.taskItem}>No Tasks Today</div>) }
         { selectedTasks.length ? ( <div className={styles.completedBtn} onClick={handleCompleteTasks} >Chores complete</div> ) 
         : 
         ( <Link className={styles.add} to = {`/kidChores/${childId}`} >
