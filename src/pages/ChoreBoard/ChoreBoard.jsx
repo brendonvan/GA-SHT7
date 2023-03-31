@@ -25,8 +25,16 @@ const ChoreBoard = () => {
 
   useEffect(() => {
     fetchChild()
+    handleTaskComplete()
   }, [])
   
+  async function handleTaskComplete(){
+    if(child.currentScore >= child.goalScore){
+      await childService.update(childId, { currentScore: 0 })
+      await childService.update(childId, { goalItem: "" })
+    }
+  }
+
   function handleSelectTask(task) {
     task.selected = !task.selected
     if (task.selected){
@@ -46,6 +54,7 @@ const ChoreBoard = () => {
       // delete task
       await childService.deleteTask(child._id, task._id)
     })
+
     fetchChild()
   }
 
