@@ -152,9 +152,9 @@ input[type="checkbox"] {
 
 
 @media screen and (min-width:500px) {
-  .formField {
-    /* margin-left: 30rem;
-    margin-right: 30rem; */
+  .tasklist  {
+    display: flex;
+    width: 30%;
   }
   .save {
     margin-top: 2rem;

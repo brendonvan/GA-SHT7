@@ -222,7 +222,16 @@
     justify-content: center;
   }
   .taskList {
-    margin-left: 35rem;
-    margin-right: 35rem;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+
+  .add {
+    margin-bottom: 2rem;
+  }
+
+  .taskItem {
+    margin: 0.5rem;
   }
 }
