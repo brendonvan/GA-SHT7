@@ -72,7 +72,7 @@ export default function CoinGoal() {
                 <h3 className={styles.taskName}>{task.name}</h3>
                 <input 
                   placeholder='0' 
-                  type='number' 
+                  type='text' 
                   className={styles.coinInput}
                   name='taskReward'
                   onChange={ (e)=> handleChange(e, task)}
